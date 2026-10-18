@@ -1,0 +1,3610 @@
+<!doctype html>
+<html lang="sq">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tetori - Muaji i Letërsisë Shqipe</title>
+
+    <!-- Google Fonts: Cormorant Garamond, Cinzel, Playfair Display, Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      /* ==========================================================================
+       1. TEMA LIGHT (WARM LIGHT PARCHMENT / LETËR E BARDHË ANTIKE)
+       E hapur, e ndritshme, kontrast i lartë për Laptop 13", Projektor & Telefon
+       ========================================================================== */
+      :root {
+        /* Sfondet Light me ngjyrë pergamene të hapur */
+        --bg-base: #fbf8f2;
+        --bg-surface: #ffffff;
+        --bg-surface-soft: #f5efe4;
+        --bg-card: #ffffff;
+        --bg-card-hover: #fcfbfa;
+        --bg-glass: rgba(251, 248, 242, 0.94);
+        --bg-highlight: #f8f2e6;
+
+        /* Thekse Ari Antik & Rubin Shqiptar */
+        --gold-primary: #a16207;
+        --gold-dark: #854d0e;
+        --gold-light: #ca8a04;
+        --gold-border: rgba(161, 98, 7, 0.28);
+        --ruby-primary: #991b1b;
+        --ruby-soft: #7f1d1d;
+        --ruby-light: #b91c1c;
+
+        /* Ngjyrat e tekstit me kontrast të thellë (Boje e zezë / Espresso) */
+        --text-dark: #1c1917;
+        --text-body: #292524;
+        --text-muted: #57534e;
+        --text-soft: #78716c;
+        --text-ivory: #ffffff;
+
+        /* Kufijtë & Hijet e lehta */
+        --border-card: 1px solid rgba(161, 98, 7, 0.22);
+        --border-subtle: rgba(161, 98, 7, 0.15);
+        --border-accent: 1.5px solid #a16207;
+        --shadow-sm: 0 2px 8px rgba(70, 50, 30, 0.05);
+        --shadow-md: 0 4px 18px rgba(70, 50, 30, 0.08);
+        --shadow-lg: 0 10px 30px rgba(70, 50, 30, 0.12);
+
+        /* Tipografia */
+        --font-display: "Cinzel", serif;
+        --font-heading: "Playfair Display", Georgia, serif;
+        --font-quote: "Cormorant Garamond", Georgia, serif;
+        --font-sans: "Plus Jakarta Sans", -apple-system, sans-serif;
+
+        --radius-sm: 6px;
+        --radius-md: 10px;
+        --radius-lg: 16px;
+        --transition: all 0.25s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--bg-base);
+        background-image:
+          radial-gradient(
+            circle at 10% 15%,
+            rgba(161, 98, 7, 0.035) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 90% 85%,
+            rgba(153, 27, 27, 0.03) 0%,
+            transparent 40%
+          ),
+          linear-gradient(to bottom, #fbf8f2, #f5efe4, #fbf8f2);
+        color: var(--text-body);
+        font-family: var(--font-sans);
+        line-height: 1.65;
+        overflow-x: hidden;
+        min-height: 100vh;
+      }
+
+      ::selection {
+        background: var(--gold-primary);
+        color: #fff;
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1ebd9;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #c5b497;
+        border-radius: 8px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--gold-primary);
+      }
+
+      .container {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 1.25rem;
+      }
+
+      /* Section Headers */
+      .section-header {
+        text-align: center;
+        margin-bottom: 2.8rem;
+      }
+
+      .section-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-family: var(--font-display);
+        font-size: 0.76rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gold-primary);
+        background: rgba(161, 98, 7, 0.1);
+        border: 1px solid rgba(161, 98, 7, 0.25);
+        padding: 0.3rem 0.95rem;
+        border-radius: 9999px;
+        margin-bottom: 0.75rem;
+        font-weight: 700;
+      }
+
+      .section-title {
+        font-family: var(--font-heading);
+        font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+        font-weight: 700;
+        color: var(--text-dark);
+        letter-spacing: 0.3px;
+        margin-bottom: 0.5rem;
+      }
+
+      .section-subtitle {
+        font-family: var(--font-quote);
+        font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+        font-style: italic;
+        color: var(--text-muted);
+        max-width: 680px;
+        margin: 0 auto;
+      }
+
+      .flourish-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-top: 0.8rem;
+        color: var(--gold-primary);
+        opacity: 0.85;
+        font-size: 1rem;
+      }
+
+      .flourish-divider::before,
+      .flourish-divider::after {
+        content: "";
+        display: block;
+        width: 45px;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold-primary),
+          transparent
+        );
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.65rem 1.3rem;
+        font-family: var(--font-sans);
+        font-size: 0.88rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: var(--radius-sm);
+        transition: var(--transition);
+        cursor: pointer;
+        outline: none;
+        border: 1px solid transparent;
+      }
+
+      .btn-gold {
+        background: linear-gradient(135deg, #b45309, #a16207);
+        color: #ffffff;
+        font-weight: 700;
+        box-shadow: 0 3px 10px rgba(161, 98, 7, 0.25);
+      }
+
+      .btn-gold:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.08);
+        box-shadow: 0 5px 14px rgba(161, 98, 7, 0.35);
+      }
+
+      .btn-outline {
+        background: #ffffff;
+        border: 1px solid rgba(161, 98, 7, 0.35);
+        color: var(--text-dark);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .btn-outline:hover {
+        background: rgba(161, 98, 7, 0.08);
+        border-color: var(--gold-primary);
+        color: var(--gold-primary);
+      }
+
+      /* ==========================================================================
+       2. HEADER & NAVIGIMI (LIGHT THEME, PA BUTON MUZIKE NE SFOND, PA DY LINJA)
+       ========================================================================== */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(251, 248, 242, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(161, 98, 7, 0.2);
+        padding: 0.75rem 0;
+        transition: var(--transition);
+      }
+
+      .navbar.scrolled {
+        padding: 0.55rem 0;
+        box-shadow: var(--shadow-md);
+        background: rgba(255, 255, 255, 0.98);
+      }
+
+      .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        text-decoration: none;
+        color: var(--text-dark);
+        flex-shrink: 0;
+      }
+
+      .brand-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: rgba(161, 98, 7, 0.12);
+        border: 1.5px solid var(--gold-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--gold-primary);
+        font-size: 0.95rem;
+      }
+
+      .brand-text-wrap {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-title {
+        font-family: var(--font-display);
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        color: var(--text-dark);
+        line-height: 1.1;
+      }
+
+      .brand-tagline {
+        font-size: 0.66rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--gold-primary);
+        font-weight: 600;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        list-style: none;
+      }
+
+      .nav-link {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        white-space: nowrap;
+        padding: 0.25rem 0;
+        position: relative;
+        transition: var(--transition);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--gold-primary);
+        transition: var(--transition);
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--gold-primary);
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      .mobile-menu-toggle {
+        display: none;
+        background: none;
+        border: 1px solid rgba(161, 98, 7, 0.3);
+        color: var(--text-dark);
+        font-size: 1.1rem;
+        cursor: pointer;
+        width: 36px;
+        height: 36px;
+        border-radius: var(--radius-sm);
+      }
+
+      /* ==========================================================================
+       3. HERO SECTION (I NDRIÇUAR, I PASTER, PA BUTONA TE TEPËRT)
+       ========================================================================== */
+      .hero {
+        position: relative;
+        padding: 7.2rem 0 3.2rem;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-content {
+        max-width: 820px;
+        margin: 0 auto;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        background: rgba(161, 98, 7, 0.08);
+        border: 1px solid rgba(161, 98, 7, 0.25);
+        padding: 0.32rem 1.1rem;
+        border-radius: 9999px;
+        color: var(--gold-primary);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 1.1rem;
+      }
+
+      .hero-title {
+        font-family: var(--font-heading);
+        font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+        font-weight: 800;
+        line-height: 1.18;
+        color: var(--text-dark);
+        margin-bottom: 0.9rem;
+      }
+
+      .hero-title .highlight {
+        color: var(--gold-primary);
+        background: linear-gradient(135deg, #a16207, #b45309, #78350f);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: inline-block;
+      }
+
+      .hero-subtitle {
+        font-family: var(--font-quote);
+        font-size: clamp(1.2rem, 2vw, 1.45rem);
+        font-style: italic;
+        color: var(--text-muted);
+        line-height: 1.55;
+        margin-bottom: 2.2rem;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Stats Banner me stil letre të pastër */
+      .hero-stats-banner {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        padding: 1.2rem 1.5rem;
+        background: var(--bg-surface);
+        border: var(--border-card);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .stat-card {
+        text-align: center;
+        position: relative;
+      }
+
+      .stat-card:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 15%;
+        height: 70%;
+        width: 1px;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          rgba(161, 98, 7, 0.25),
+          transparent
+        );
+      }
+
+      .stat-number {
+        font-family: var(--font-heading);
+        font-size: 1.85rem;
+        font-weight: 700;
+        color: var(--gold-primary);
+        line-height: 1.1;
+        margin-bottom: 0.15rem;
+      }
+
+      .stat-label {
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--text-soft);
+        font-weight: 700;
+      }
+
+      /* ==========================================================================
+       4. SEKSIONI RECITIME (FULL-WIDTH ME SPOTIFY PLAYER DHE 2 KOLONA POEZI)
+       ========================================================================== */
+      .recitations-section {
+        padding: 4.5rem 0;
+      }
+
+      .recitations-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 3.5rem;
+      }
+
+      .recitation-full-card {
+        background: var(--bg-surface);
+        border: var(--border-card);
+        border-radius: var(--radius-lg);
+        padding: 2.2rem 2.4rem;
+        box-shadow: var(--shadow-md);
+        position: relative;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .recitation-full-card:hover {
+        box-shadow: var(--shadow-lg);
+      }
+
+      /* Spotify Player Widget */
+      .spotify-player-widget {
+        background: #121212;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 1rem 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        color: #ffffff;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
+        margin-bottom: 2rem;
+      }
+
+      .spotify-left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        min-width: 270px;
+      }
+
+      .spotify-cover {
+        width: 60px;
+        height: 60px;
+        border-radius: 8px;
+        object-fit: cover;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        flex-shrink: 0;
+        background: #27272a;
+      }
+
+      .spotify-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        overflow: hidden;
+      }
+
+      .spotify-title {
+        color: #ffffff;
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: 1rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .spotify-artist {
+        color: #a7a7a7;
+        font-size: 0.83rem;
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+      }
+
+      .spotify-badge {
+        background: rgba(30, 215, 96, 0.18);
+        color: #1ed760;
+        font-size: 0.65rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 0.15rem 0.5rem;
+        border-radius: 9999px;
+        letter-spacing: 0.5px;
+        border: 1px solid rgba(30, 215, 96, 0.35);
+      }
+
+      /* Animated Equalizer */
+      .spotify-equalizer {
+        display: flex;
+        align-items: flex-end;
+        gap: 3px;
+        height: 18px;
+        margin-left: 0.4rem;
+        flex-shrink: 0;
+      }
+
+      .spotify-equalizer span {
+        width: 3px;
+        background: #1ed760;
+        border-radius: 2px;
+        height: 4px;
+        transition: height 0.2s ease;
+      }
+
+      .spotify-equalizer.playing span:nth-child(1) {
+        animation: eqBounce 0.75s ease-in-out infinite alternate;
+      }
+      .spotify-equalizer.playing span:nth-child(2) {
+        animation: eqBounce 0.5s ease-in-out infinite alternate 0.15s;
+      }
+      .spotify-equalizer.playing span:nth-child(3) {
+        animation: eqBounce 0.8s ease-in-out infinite alternate 0.3s;
+      }
+      .spotify-equalizer.playing span:nth-child(4) {
+        animation: eqBounce 0.6s ease-in-out infinite alternate 0.2s;
+      }
+
+      @keyframes eqBounce {
+        0% { height: 4px; }
+        100% { height: 18px; }
+      }
+
+      /* Spotify Center */
+      .spotify-center {
+        flex: 1;
+        max-width: 580px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.45rem;
+      }
+
+      .spotify-controls {
+        display: flex;
+        align-items: center;
+        gap: 1.15rem;
+      }
+
+      .sp-ctrl-btn {
+        background: none;
+        border: none;
+        color: #b3b3b3;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: color 0.15s ease, transform 0.15s ease;
+        padding: 6px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .sp-ctrl-btn:hover {
+        color: #ffffff;
+        transform: scale(1.12);
+      }
+
+      .sp-play-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: #1ed760;
+        border: none;
+        color: #000000;
+        font-size: 1.05rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+        box-shadow: 0 3px 12px rgba(30, 215, 96, 0.35);
+      }
+
+      .sp-play-btn:hover {
+        transform: scale(1.08);
+        background: #1fdf64;
+        box-shadow: 0 4px 16px rgba(30, 215, 96, 0.5);
+      }
+
+      .spotify-timeline {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .sp-time {
+        font-size: 0.74rem;
+        color: #a7a7a7;
+        font-family: monospace;
+        min-width: 38px;
+        text-align: center;
+      }
+
+      .sp-progress-bar {
+        flex: 1;
+        height: 5px;
+        background: rgba(255, 255, 255, 0.22);
+        border-radius: 9999px;
+        position: relative;
+        cursor: pointer;
+        transition: height 0.15s ease;
+      }
+
+      .sp-progress-bar:hover {
+        height: 7px;
+      }
+
+      .sp-progress-fill {
+        height: 100%;
+        width: 0%;
+        background: #1ed760;
+        border-radius: 9999px;
+        position: relative;
+      }
+
+      .sp-progress-bar:hover .sp-progress-fill {
+        background: #1fdf64;
+      }
+
+      .sp-progress-thumb {
+        position: absolute;
+        right: -5px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        background: #ffffff;
+        border-radius: 50%;
+        opacity: 0;
+        transition: opacity 0.15s ease;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .sp-progress-bar:hover .sp-progress-thumb {
+        opacity: 1;
+      }
+
+      /* Spotify Right */
+      .spotify-right {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        min-width: 90px;
+        justify-content: flex-end;
+      }
+
+      .sp-volume-btn {
+        background: none;
+        border: none;
+        color: #b3b3b3;
+        font-size: 0.98rem;
+        cursor: pointer;
+        transition: color 0.15s ease, transform 0.15s ease;
+        padding: 6px;
+      }
+
+      .sp-volume-btn:hover {
+        color: #ffffff;
+        transform: scale(1.1);
+      }
+
+      .sp-loop-btn.active {
+        color: #1ed760;
+      }
+
+      /* Poem Body (Ndare Majtas - Djathtas) */
+      .poem-body-container {
+        background: var(--bg-surface-soft);
+        border-left: 4px solid var(--gold-primary);
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        padding: 1.8rem 2.4rem;
+        box-shadow: inset 0 0 15px rgba(161, 98, 7, 0.03);
+      }
+
+      .poem-header-banner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 0.9rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px dashed rgba(161, 98, 7, 0.25);
+      }
+
+      .poem-meta-label {
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        color: var(--gold-primary);
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+      }
+
+      .poem-author-quote {
+        font-family: var(--font-quote);
+        font-style: italic;
+        font-size: 0.98rem;
+        color: var(--text-muted);
+      }
+
+      .poem-columns-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3.8rem;
+      }
+
+      .poem-column {
+        display: flex;
+        flex-direction: column;
+        gap: 1.35rem;
+      }
+
+      .poem-stanza {
+        font-family: var(--font-quote);
+        font-size: 1.14rem;
+        font-style: italic;
+        color: var(--text-dark);
+        line-height: 1.85;
+      }
+
+      .poem-stanza p {
+        margin: 0;
+        padding: 0.06rem 0;
+      }
+
+      /* ==========================================================================
+       5. LINJA KOHORE (LIGHT THEME)
+       ========================================================================== */
+      .timeline-section {
+        padding: 4.5rem 0;
+      }
+
+      .filter-wrapper {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        margin-bottom: 2.8rem;
+      }
+
+      .filter-btn {
+        padding: 0.45rem 1.1rem;
+        font-family: var(--font-sans);
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        background: var(--bg-surface);
+        border: 1px solid rgba(161, 98, 7, 0.22);
+        border-radius: 9999px;
+        cursor: pointer;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--gold-primary);
+        border-color: var(--gold-primary);
+        color: #ffffff;
+      }
+
+      .timeline-container {
+        position: relative;
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 1rem 0;
+      }
+
+      .timeline-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 2px;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          var(--gold-primary) 15%,
+          var(--gold-dark) 85%,
+          transparent
+        );
+        transform: translateX(-50%);
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 2.5rem;
+        width: 50%;
+        padding: 0 1.8rem;
+        transition: var(--transition);
+      }
+
+      .timeline-item.left {
+        left: 0;
+        text-align: right;
+      }
+
+      .timeline-item.right {
+        left: 50%;
+        text-align: left;
+      }
+
+      .timeline-marker {
+        position: absolute;
+        top: 1.1rem;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: var(--ruby-primary);
+        border: 2px solid #ffffff;
+        box-shadow: 0 0 10px rgba(153, 27, 27, 0.4);
+        z-index: 5;
+      }
+
+      .timeline-item.left .timeline-marker {
+        right: -9px;
+      }
+      .timeline-item.right .timeline-marker {
+        left: -9px;
+      }
+
+      .timeline-card {
+        background: var(--bg-surface);
+        border: var(--border-card);
+        border-radius: var(--radius-md);
+        padding: 1.5rem;
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+      }
+
+      .timeline-card:hover {
+        transform: translateY(-3px);
+        border-color: var(--gold-primary);
+      }
+
+      .timeline-year {
+        display: inline-block;
+        font-family: var(--font-heading);
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--gold-primary);
+        margin-bottom: 0.3rem;
+        background: rgba(161, 98, 7, 0.08);
+        padding: 0.18rem 0.7rem;
+        border-radius: 9999px;
+        border: 1px solid rgba(161, 98, 7, 0.22);
+      }
+
+      .timeline-era-tag {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        color: #c2410c;
+        margin-bottom: 0.3rem;
+        display: block;
+        font-weight: 700;
+      }
+
+      .timeline-title {
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-desc {
+        font-size: 0.92rem;
+        color: var(--text-body);
+        margin-bottom: 0.8rem;
+        line-height: 1.6;
+      }
+
+      .timeline-works {
+        border-top: 1px dashed rgba(161, 98, 7, 0.22);
+        padding-top: 0.7rem;
+        font-size: 0.84rem;
+        color: var(--gold-primary);
+        font-weight: 500;
+      }
+
+      .timeline-works strong {
+        color: var(--text-dark);
+      }
+
+      /* ==========================================================================
+       6. SEKSIONI AUTORËT (LIGHT THEME)
+       ========================================================================== */
+      .authors-section {
+        padding: 4.5rem 0;
+      }
+
+      .catalog-search-bar {
+        max-width: 540px;
+        margin: 0 auto 1.8rem;
+        position: relative;
+      }
+
+      .search-input-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .search-input-wrapper i {
+        position: absolute;
+        left: 1.2rem;
+        color: var(--gold-primary);
+        font-size: 0.95rem;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 0.8rem 1.2rem 0.8rem 2.9rem;
+        background: var(--bg-surface);
+        border: 1px solid rgba(161, 98, 7, 0.3);
+        border-radius: 9999px;
+        font-family: var(--font-sans);
+        font-size: 0.92rem;
+        color: var(--text-dark);
+        outline: none;
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition);
+      }
+
+      .search-input:focus {
+        border-color: var(--gold-primary);
+        box-shadow: 0 0 12px rgba(161, 98, 7, 0.2);
+      }
+
+      .search-input::placeholder {
+        color: var(--text-soft);
+      }
+
+      .authors-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.6rem;
+      }
+
+      .author-card {
+        background: var(--bg-surface);
+        border: var(--border-card);
+        border-radius: var(--radius-md);
+        padding: 1.5rem 1.35rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: var(--transition);
+        box-shadow: var(--shadow-md);
+      }
+
+      .author-card:hover {
+        transform: translateY(-3px);
+        border-color: var(--gold-primary);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .author-card-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .author-portrait-frame {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        border: 2px solid var(--gold-primary);
+        box-shadow: 0 0 8px rgba(161, 98, 7, 0.2);
+        overflow: hidden;
+        position: relative;
+        background: #f5efe4;
+        flex-shrink: 0;
+      }
+
+      .author-portrait-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .author-card:hover .author-portrait-img {
+        transform: scale(1.06);
+      }
+
+      .author-meta h3 {
+        font-family: var(--font-heading);
+        font-size: 1.24rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        line-height: 1.2;
+        margin-bottom: 0.15rem;
+      }
+
+      .author-years {
+        font-size: 0.78rem;
+        color: var(--gold-primary);
+        font-family: var(--font-display);
+        font-weight: 700;
+      }
+
+      .author-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        margin-bottom: 0.9rem;
+      }
+
+      .badge-era {
+        font-size: 0.7rem;
+        background: rgba(161, 98, 7, 0.08);
+        border: 1px solid rgba(161, 98, 7, 0.25);
+        color: var(--gold-primary);
+        padding: 0.15rem 0.55rem;
+        border-radius: 9999px;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        font-weight: 700;
+      }
+
+      .badge-field {
+        font-size: 0.7rem;
+        background: rgba(153, 27, 27, 0.08);
+        border: 1px solid rgba(153, 27, 27, 0.25);
+        color: var(--ruby-primary);
+        padding: 0.15rem 0.55rem;
+        border-radius: 9999px;
+        font-weight: 700;
+      }
+
+      .author-quote-snippet {
+        font-family: var(--font-quote);
+        font-size: 1.05rem;
+        font-style: italic;
+        color: var(--text-body);
+        margin-bottom: 1.1rem;
+        line-height: 1.5;
+        padding-left: 0.8rem;
+        border-left: 2px solid var(--gold-primary);
+      }
+
+      .author-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid rgba(161, 98, 7, 0.15);
+        padding-top: 0.85rem;
+        margin-top: auto;
+      }
+
+      .author-works-brief {
+        font-size: 0.8rem;
+        color: var(--text-soft);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 150px;
+      }
+
+      /* Modal */
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(28, 25, 23, 0.6);
+        backdrop-filter: blur(6px);
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+      }
+
+      .modal-backdrop.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .modal-content {
+        background: #ffffff;
+        border: 1.5px solid var(--gold-primary);
+        border-radius: var(--radius-lg);
+        max-width: 620px;
+        width: 100%;
+        max-height: 85vh;
+        overflow-y: auto;
+        padding: 1.7rem;
+        position: relative;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .modal-close-btn {
+        position: absolute;
+        top: 1.1rem;
+        right: 1.1rem;
+        background: rgba(161, 98, 7, 0.1);
+        border: 1px solid rgba(161, 98, 7, 0.25);
+        color: var(--text-dark);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 0.95rem;
+        transition: var(--transition);
+      }
+
+      .modal-close-btn:hover {
+        background: var(--ruby-primary);
+        color: #fff;
+      }
+
+      .modal-header-section {
+        display: flex;
+        align-items: center;
+        gap: 1.1rem;
+        margin-bottom: 1.3rem;
+        border-bottom: 1px solid rgba(161, 98, 7, 0.18);
+        padding-bottom: 1.1rem;
+      }
+
+      .modal-photo-lg {
+        width: 76px;
+        height: 76px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--gold-primary);
+        box-shadow: 0 0 10px rgba(161, 98, 7, 0.2);
+        flex-shrink: 0;
+        background: #f5efe4;
+      }
+
+      .modal-title-wrap h2 {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        line-height: 1.2;
+      }
+
+      .modal-title-wrap .modal-period {
+        color: var(--gold-primary);
+        font-family: var(--font-display);
+        font-size: 0.84rem;
+        margin-top: 0.2rem;
+        font-weight: 700;
+      }
+
+      .modal-body-section {
+        margin-bottom: 1.2rem;
+      }
+
+      .modal-body-section h4 {
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        color: var(--gold-primary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 0.35rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-weight: 700;
+      }
+
+      .modal-body-section p {
+        font-size: 0.94rem;
+        color: var(--text-body);
+        line-height: 1.6;
+      }
+
+      .modal-works-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-top: 0.35rem;
+      }
+
+      .modal-work-tag {
+        background: var(--bg-surface-soft);
+        border: 1px solid rgba(161, 98, 7, 0.25);
+        color: var(--text-dark);
+        padding: 0.22rem 0.65rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.82rem;
+        font-weight: 500;
+      }
+
+      /* ==========================================================================
+       7. KUIZI INTERAKTIV (LIGHT THEME)
+       ========================================================================== */
+      .quiz-section {
+        padding: 4.5rem 0;
+      }
+
+      .quiz-box {
+        background: var(--bg-surface);
+        border: var(--border-card);
+        border-radius: var(--radius-lg);
+        padding: 2.2rem 1.8rem;
+        max-width: 760px;
+        margin: 0 auto;
+        box-shadow: var(--shadow-md);
+      }
+
+      .quiz-progress-bar-container {
+        width: 100%;
+        height: 5px;
+        background: rgba(161, 98, 7, 0.12);
+        border-radius: 9999px;
+        margin-bottom: 1.4rem;
+        overflow: hidden;
+      }
+
+      .quiz-progress-bar {
+        height: 100%;
+        width: 20%;
+        background: linear-gradient(90deg, #b45309, #a16207);
+        border-radius: 9999px;
+        transition: width 0.3s ease;
+      }
+
+      .quiz-header-status {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1.1rem;
+        font-size: 0.8rem;
+        color: var(--text-soft);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+      }
+
+      .quiz-question-title {
+        font-family: var(--font-heading);
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 1.5rem;
+        line-height: 1.4;
+      }
+
+      .quiz-options-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-bottom: 1.6rem;
+      }
+
+      .quiz-option {
+        background: #ffffff;
+        border: 1px solid rgba(161, 98, 7, 0.22);
+        border-radius: var(--radius-sm);
+        padding: 0.9rem 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        cursor: pointer;
+        transition: var(--transition);
+        color: var(--text-body);
+        text-align: left;
+        font-family: var(--font-sans);
+        font-size: 0.94rem;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .quiz-option:hover {
+        background: rgba(161, 98, 7, 0.08);
+        border-color: var(--gold-primary);
+        color: var(--text-dark);
+        transform: translateX(3px);
+      }
+
+      .quiz-option-letter {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: rgba(161, 98, 7, 0.12);
+        border: 1px solid rgba(161, 98, 7, 0.35);
+        color: var(--gold-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.8rem;
+        flex-shrink: 0;
+      }
+
+      .quiz-result-view {
+        display: none;
+        text-align: center;
+      }
+
+      .result-badge-character {
+        display: inline-block;
+        font-family: var(--font-display);
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--gold-primary);
+        background: rgba(161, 98, 7, 0.1);
+        border: 1px solid rgba(161, 98, 7, 0.3);
+        padding: 0.28rem 1rem;
+        border-radius: 9999px;
+        margin-bottom: 0.85rem;
+        font-weight: 700;
+      }
+
+      .result-character-name {
+        font-family: var(--font-heading);
+        font-size: clamp(1.7rem, 3vw, 2.3rem);
+        font-weight: 800;
+        color: var(--text-dark);
+        margin-bottom: 0.25rem;
+      }
+
+      .result-source-work {
+        font-family: var(--font-quote);
+        font-size: 1.15rem;
+        font-style: italic;
+        color: var(--gold-primary);
+        margin-bottom: 1.3rem;
+      }
+
+      .result-description {
+        font-size: 1rem;
+        color: var(--text-body);
+        line-height: 1.65;
+        max-width: 600px;
+        margin: 0 auto 1.5rem;
+      }
+
+      .result-book-box {
+        background: var(--bg-surface-soft);
+        border: 1px solid rgba(161, 98, 7, 0.25);
+        border-radius: var(--radius-md);
+        padding: 1.1rem 1.3rem;
+        max-width: 500px;
+        margin: 0 auto 1.6rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        text-align: left;
+      }
+
+      .result-book-icon {
+        font-size: 1.6rem;
+        color: var(--gold-primary);
+        flex-shrink: 0;
+      }
+
+      /* ==========================================================================
+       8. SHTEGU I CITATEVE (LIGHT THEME)
+       ========================================================================== */
+      .quotes-section {
+        padding: 4.5rem 0;
+      }
+
+      .quote-generator-card {
+        background: var(--bg-surface);
+        border: var(--border-card);
+        border-radius: var(--radius-lg);
+        padding: 2.6rem 2rem;
+        max-width: 780px;
+        margin: 0 auto;
+        text-align: center;
+        box-shadow: var(--shadow-md);
+      }
+
+      .quote-text-display {
+        font-family: var(--font-quote);
+        font-size: clamp(1.3rem, 2.3vw, 1.8rem);
+        font-style: italic;
+        color: var(--text-dark);
+        line-height: 1.6;
+        margin-bottom: 1.4rem;
+        min-height: 85px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.25s ease;
+      }
+
+      .quote-author-display {
+        font-family: var(--font-heading);
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--gold-primary);
+        margin-bottom: 0.15rem;
+      }
+
+      .quote-work-display {
+        font-size: 0.86rem;
+        color: var(--text-muted);
+        font-style: italic;
+        margin-bottom: 1.6rem;
+      }
+
+      .quote-actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+
+      /* Toast Notification */
+      .toast-notification {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        background: #ffffff;
+        border: 1.5px solid var(--gold-primary);
+        color: var(--text-dark);
+        padding: 0.7rem 1.2rem;
+        border-radius: var(--radius-sm);
+        box-shadow: var(--shadow-lg);
+        z-index: 3000;
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        font-size: 0.88rem;
+        font-weight: 600;
+        transform: translateY(100px);
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+
+      .toast-notification.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      /* ==========================================================================
+       9. FOOTER
+       ========================================================================== */
+      .site-footer {
+        background: #f4ecdf;
+        border-top: 1px solid rgba(161, 98, 7, 0.2);
+        padding: 3.2rem 0 1.8rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 2rem;
+        margin-bottom: 2.2rem;
+      }
+
+      .footer-info h3 {
+        font-family: var(--font-heading);
+        font-size: 1.2rem;
+        color: var(--text-dark);
+        margin-bottom: 0.7rem;
+      }
+
+      .footer-info p {
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+        max-width: 400px;
+        margin-bottom: 1.1rem;
+      }
+
+      .school-project-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(153, 27, 27, 0.08);
+        border: 1px solid rgba(153, 27, 27, 0.25);
+        color: var(--ruby-primary);
+        padding: 0.35rem 0.9rem;
+        border-radius: var(--radius-sm);
+        font-size: 0.82rem;
+        font-weight: 700;
+      }
+
+      .footer-col h4 {
+        font-family: var(--font-display);
+        font-size: 0.86rem;
+        color: var(--gold-primary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 0.9rem;
+        font-weight: 700;
+      }
+
+      .footer-links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+      }
+
+      .footer-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.84rem;
+        transition: var(--transition);
+        font-weight: 500;
+      }
+
+      .footer-links a:hover {
+        color: var(--gold-primary);
+        padding-left: 3px;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(161, 98, 7, 0.15);
+        padding-top: 1.3rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.82rem;
+        color: var(--text-soft);
+        font-weight: 500;
+      }
+
+      /* ==========================================================================
+       RESPONSIVE DESIGN (13" LAPTOP, PROJEKTOR & TELEFON)
+       ========================================================================== */
+      @media (max-width: 992px) {
+        .spotify-player-widget {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 1.1rem;
+          padding: 1.2rem;
+        }
+        .spotify-left {
+          min-width: 0;
+        }
+        .spotify-center {
+          max-width: none;
+          width: 100%;
+        }
+        .spotify-right {
+          justify-content: center;
+        }
+        .poem-columns-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        .poem-body-container {
+          padding: 1.4rem 1.6rem;
+        }
+        .recitation-full-card {
+          padding: 1.5rem 1.4rem;
+        }
+        .hero-stats-banner {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .stat-card:nth-child(2)::after {
+          display: none;
+        }
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 820px) {
+        .mobile-menu-toggle {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 56px;
+          left: 0;
+          right: 0;
+          background: rgba(255, 255, 255, 0.98);
+          flex-direction: column;
+          padding: 1.8rem 1.4rem;
+          gap: 1.1rem;
+          border-bottom: 1px solid rgba(161, 98, 7, 0.2);
+          transform: translateY(-130%);
+          transition: transform 0.3s ease;
+          box-shadow: var(--shadow-lg);
+        }
+
+        .nav-links.open {
+          transform: translateY(0);
+        }
+
+        .timeline-container::before {
+          left: 18px;
+        }
+
+        .timeline-item {
+          width: 100%;
+          padding-left: 48px;
+          padding-right: 0;
+          text-align: left !important;
+        }
+
+        .timeline-item.right {
+          left: 0;
+        }
+
+        .timeline-item.left .timeline-marker,
+        .timeline-item.right .timeline-marker {
+          left: 8px;
+          right: auto;
+        }
+
+        .quiz-box {
+          padding: 1.5rem 1.1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-stats-banner {
+          grid-template-columns: 1fr;
+        }
+        .stat-card:not(:last-child)::after {
+          display: none;
+        }
+        .player-controls-row {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .player-btn {
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      /* Responsive recitation cards with comfortable space before each player */
+      .recitations-section > .container { width:min(100%,1540px); max-width:1540px; }
+      .recitations-grid { display:grid !important; grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important; gap:2rem; align-items:stretch; width:100%; }
+      .recitations-grid > .recitation-card { display:flex; flex-direction:column; gap:1.5rem; grid-column:auto !important; width:100% !important; max-width:none !important; min-width:0; align-self:stretch; padding:clamp(1rem,2vw,1.8rem); background:#fff !important; border:var(--border-card); border-radius:var(--radius-lg); box-shadow:var(--shadow-md); }
+      .recitation-card > div:first-child { min-width:0; }
+      .recitation-header { display:flex; align-items:center; gap:1rem; margin-bottom:1.35rem; }
+      .recitation-photo { width:88px; height:88px; flex:0 0 88px; object-fit:cover; border-radius:50%; border:2px solid var(--gold-primary); box-shadow:0 3px 10px rgba(70,50,30,.14); }
+      .recitation-meta h3 { color:var(--text-dark); font-family:var(--font-heading); font-size:clamp(1.2rem,1.7vw,1.75rem); }
+      .recitation-poem-title { margin-top:.25rem; color:var(--gold-dark); font-family:var(--font-quote); font-style:italic; font-weight:700; }
+      .poem-scroll-box { columns:2; column-gap:clamp(1rem,2vw,2rem); column-rule:1px solid rgba(161,98,7,.13); padding:1.4rem; margin-bottom:.3rem; background:var(--bg-surface-soft); border-radius:12px; color:var(--text-dark); font:italic clamp(1rem,1.1vw,1.16rem)/1.95 var(--font-quote); }
+      .poem-line { display:block; padding:.03rem 0; }
+      .audio-player-box { flex:0 0 auto; margin-top:0; padding:1rem 1.2rem; border-radius:16px; background:linear-gradient(145deg,#fffdf9,#f2e9db); border:1px solid rgba(161,98,7,.22); box-shadow:0 5px 16px rgba(70,50,30,.09); }
+      .player-controls-row { display:flex; align-items:center; gap:1rem; }
+      .player-btn { width:48px; height:48px; flex:0 0 48px; display:grid; place-items:center; border:0; border-radius:50%; background:var(--gold-primary); color:#fff; font-size:1.05rem; cursor:pointer; }
+      .player-track-info { flex:1; min-width:0; }
+      .player-status-line { display:flex; justify-content:space-between; gap:.7rem; margin-bottom:.65rem; color:var(--text-dark); font:600 .84rem var(--font-sans); }
+      .player-status-line span:last-child { color:var(--text-soft); font:.76rem monospace; white-space:nowrap; }
+      .progress-bar-container { height:6px; overflow:hidden; border-radius:99px; background:rgba(120,90,50,.22); cursor:pointer; }
+      .progress-bar-fill { width:0; height:100%; border-radius:inherit; background:var(--gold-primary); }
+      html,body { max-width:100%; overflow-x:hidden; } img,video,iframe { max-width:100%; } .container { width:100%; }
+      @media (min-width:1500px) { .container { max-width:1380px; } }
+      @media (max-width:820px) { .recitations-grid { grid-template-columns:minmax(0,1fr) !important; gap:1.4rem; } .recitation-photo { width:82px;height:82px;flex-basis:82px; } .poem-scroll-box { columns:2; } .hero-title { font-size:clamp(2.2rem,8vw,3.5rem); } .section-title { font-size:clamp(2rem,7vw,3rem); } .authors-grid { grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr)); } .footer-bottom { flex-wrap:wrap; gap:.7rem; } }
+      @media (max-width:600px) { .recitations-grid { grid-template-columns:minmax(0,1fr) !important; } .recitation-card { padding:1rem; gap:1.2rem; } .recitation-photo { width:70px;height:70px;flex-basis:70px; } .poem-scroll-box { columns:1; padding:1.15rem; } .player-controls-row { align-items:flex-start; } .player-status-line { flex-direction:column; gap:.25rem; } .section-header { margin-bottom:2rem; } .section-subtitle { padding:0 .5rem; } .footer-content { gap:1.5rem; } .footer-bottom { justify-content:center; text-align:center; } }
+      @media (max-width:380px) { .recitation-header { gap:.7rem; } .recitation-photo { width:60px;height:60px;flex-basis:60px; } .recitation-meta h3 { font-size:1.1rem; } .player-btn { width:42px;height:42px;flex-basis:42px; } .quiz-box { padding:1.1rem .8rem; } }
+    </style>
+  </head>
+  <body>
+    <!-- ==========================================================================
+       1. HEADER (LIGHT THEME, ELEGANT, PA DY LINJA)
+       ========================================================================== -->
+    <nav class="navbar" id="navbar">
+      <div class="container nav-container">
+        <a href="#kreu" class="nav-brand">
+          <div class="brand-icon">
+            <i class="fa-solid fa-feather-pointed"></i>
+          </div>
+          <div class="brand-text-wrap">
+            <span class="brand-title">TETORI</span>
+            <span class="brand-tagline">Letërsia Shqipe</span>
+          </div>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#kreu" class="nav-link active">Kreu</a></li>
+          <li><a href="#recitime" class="nav-link">Recitime</a></li>
+          <li><a href="#timeline" class="nav-link">Linja Kohore</a></li>
+          <li><a href="#autoret" class="nav-link">Autorët</a></li>
+          <li><a href="#kuizi" class="nav-link">Kuizi</a></li>
+          <li><a href="#citate" class="nav-link">Citate</a></li>
+        </ul>
+
+        <button
+          class="mobile-menu-toggle"
+          id="menuToggle"
+          aria-label="Hap menynë"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ==========================================================================
+       2. HERO SECTION (I PASTER, LIGHT THEME, PA BUTONA TE TEPËRT)
+       ========================================================================== -->
+    <section class="hero" id="kreu">
+      <div class="container hero-content">
+        <div class="hero-badge">
+          <i class="fa-solid fa-bookmark"></i>
+          Kremtimi Kombëtar • Muaji i Letërsisë Shqipe
+        </div>
+
+        <h1 class="hero-title">
+          Tetori - Muaji i <br />
+          <span class="highlight">Letërsisë Shqipe</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          "Një udhëtim digjital në trashëgiminë letrare, fjalën e shkruar dhe
+          penat më të ndritura kombëtare."
+        </p>
+
+        <!-- Stats Banner -->
+        <div class="hero-stats-banner">
+          <div class="stat-card">
+            <div class="stat-number">1555</div>
+            <div class="stat-label">Meshari i Buzukut</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Epoka Madhore</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">13+</div>
+            <div class="stat-label">Kolosë me Portrete</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Trashëgimi & Krenari</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       3. SEKSIONI RECITIME (TEKSTI I PLOTË DHE RECITIMI AUDIO)
+       ========================================================================== -->
+    <section class="recitations-section" id="recitime">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">
+            <i class="fa-solid fa-microphone-lines"></i>
+            Zëra & Poezi
+          </span>
+          <h2 class="section-title">Recitime</h2>
+          <p class="section-subtitle">
+            Dëgjo vargjet e pavdekshme nga zërat e dy kolosëve më të ndritur të
+            kombit shqiptar
+          </p>
+          <div class="flourish-divider">❦ ✦ ❦</div>
+        </div>
+
+        <!-- HTML5 Audio Elements të lidhura me skedarët lokalë -->
+        <audio id="agolliAudio" preload="metadata">
+          <source src="agolli.mp3" type="audio/mpeg" />
+          <source
+            src="Y2Mate.is - Kur t jesh mrzitur shum poezi nga Dritro Agolli.mp3"
+            type="audio/mpeg"
+          />
+        </audio>
+
+        <audio id="kadareAudio" preload="metadata">
+          <source src="kadare.mp3" type="audio/mpeg" />
+          <source
+            src="Y2Mate.is - _Mall_ poezi nga Ismail Kadare.mp3"
+            type="audio/mpeg"
+          />
+        </audio>
+
+        <div class="recitations-grid">
+          <!-- 1. DRITËRO AGOLLI -->
+          <div class="recitation-card">
+            <div>
+              <div class="recitation-header">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Driteroagolli_0005-728x430.jpg"
+                  alt="Dritëro Agolli"
+                  class="recitation-photo"
+                  onerror="
+                    this.src =
+                      'https://upload.wikimedia.org/wikipedia/commons/a/a1/Drit%C3%ABro_Agolli_2016_stamp_of_Albania.jpg'
+                  "
+                />
+                <div class="recitation-meta">
+                  <h3>Dritëro Agolli</h3>
+                  <div class="recitation-poem-title">
+                    "Kur të jesh mërzitur shumë"
+                  </div>
+                </div>
+              </div>
+
+              <!-- Teksti i plotë i poemës -->
+              <div class="poem-scroll-box" id="agolliScrollBox">
+                <span class="poem-line" data-start="0" data-end="5"
+                  >Këtu s'do të jem, do jem larguar;</span
+                >
+                <span class="poem-line" data-start="5" data-end="10"
+                  >Nën tok i tretur si të tjerët,</span
+                >
+                <span class="poem-line" data-start="10" data-end="15"
+                  >Në kafenenë e preferuar</span
+                >
+                <span class="poem-line" data-start="15" data-end="20"
+                  >Nuk do më shohin kamarierët.</span
+                >
+
+                <span
+                  class="poem-line poem-stanza-gap"
+                  data-start="20"
+                  data-end="25"
+                  >Dhe nëpër udhët ku kam ecur,</span
+                >
+                <span class="poem-line" data-start="25" data-end="30"
+                  >S'do ndihet kolla ime e thatë,</span
+                >
+                <span class="poem-line" data-start="30" data-end="35"
+                  >Mbi varrin tim do të rrijë i heshtur</span
+                >
+                <span class="poem-line" data-start="35" data-end="40"
+                  >Një qiparis si murg i ngratë.</span
+                >
+
+                <span
+                  class="poem-line poem-stanza-gap"
+                  data-start="40"
+                  data-end="45"
+                  >Ti do trishtohesh atëherë,</span
+                >
+                <span class="poem-line" data-start="45" data-end="50"
+                  >Se s'do më kesh në dhomë të gjallë,</span
+                >
+                <span class="poem-line" data-start="50" data-end="55"
+                  >Dhe, kur në xham të fryjë erë,</span
+                >
+                <span class="poem-line" data-start="55" data-end="60"
+                  >Do qash me erën dalëngadalë.</span
+                >
+
+                <span
+                  class="poem-line poem-stanza-gap"
+                  data-start="60"
+                  data-end="65"
+                  >Po kur të jesh mërzitur shumë,</span
+                >
+                <span class="poem-line" data-start="65" data-end="70"
+                  >Në raft të librave kërkomë,</span
+                >
+                <span class="poem-line" data-start="70" data-end="75"
+                  >Atje i fshehur do të jem unë,</span
+                >
+                <span class="poem-line" data-start="75" data-end="80"
+                  >Në ndonjë varg a ndonjë shkronjë...</span
+                >
+
+                <span
+                  class="poem-line poem-stanza-gap"
+                  data-start="80"
+                  data-end="85"
+                  >Të heqësh librin mendueshëm,</span
+                >
+                <span class="poem-line" data-start="85" data-end="90"
+                  >T'ia shfletosh fletët me ngadalë,</span
+                >
+                <span class="poem-line" data-start="90" data-end="95"
+                  >Atje do jem i padukshëm,</span
+                >
+                <span class="poem-line" data-start="95" data-end="100"
+                  >I gjallë siç kam qenë e fjalë.</span
+                >
+              </div>
+            </div>
+
+            <div class="audio-player-box">
+              <div class="player-controls-row">
+                <button
+                  class="player-btn"
+                  id="playAgolliBtn"
+                  title="Luaj / Ndalo Audion e Agollit"
+                >
+                  <i class="fa-solid fa-play" id="agolliPlayIcon"></i>
+                </button>
+                <div class="player-track-info">
+                  <div class="player-status-line">
+                    <span>Zëri origjinal i Dritëroit</span>
+                    <span id="agolliTimeDisplay">00:00 / 01:38</span>
+                  </div>
+                  <div class="progress-bar-container" id="agolliSeekWrap">
+                    <div
+                      class="progress-bar-fill"
+                      id="agolliProgressFill"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. ISMAIL KADARE -->
+          <div class="recitation-card">
+            <div>
+              <div class="recitation-header">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/2/24/Ismail_Kadare_%28portret%29.jpg"
+                  alt="Ismail Kadare"
+                  class="recitation-photo"
+                  onerror="
+                    this.src =
+                      'https://upload.wikimedia.org/wikipedia/commons/5/57/Ismail_Kadare.jpg'
+                  "
+                />
+                <div class="recitation-meta">
+                  <h3>Ismail Kadare</h3>
+                  <div class="recitation-poem-title">
+                    "Mall" (Ca pika shiu ranë mbi qelq...)
+                  </div>
+                </div>
+              </div>
+
+              <!-- Teksti i plotë i poemës -->
+              <div class="poem-scroll-box" id="kadareScrollBox">
+                <span class="poem-line" data-start="0" data-end="5"
+                  >Ca pika shiu ranë mbi qelq,</span
+                >
+                <span class="poem-line" data-start="5" data-end="10"
+                  >Për ty unë befas ndjeva mall,</span
+                >
+                <span class="poem-line" data-start="10" data-end="16"
+                  >Jetojmë të dy në një qytet,</span
+                >
+                <span class="poem-line" data-start="16" data-end="21"
+                  >Dhe rrallë shihemi, sa rrallë.</span
+                >
+
+                <span
+                  class="poem-line poem-stanza-gap"
+                  data-start="21"
+                  data-end="26"
+                  >Edhe m’u duk pak e çuditshme,</span
+                >
+                <span class="poem-line" data-start="26" data-end="32"
+                  >Si erdh kjo vjeshtë, ky mëngjes,</span
+                >
+                <span class="poem-line" data-start="32" data-end="37"
+                  >Qiejt e ngrysur pa lejlekë,</span
+                >
+                <span class="poem-line" data-start="37" data-end="42"
+                  >Dhe shirat pa ylberë në mes.</span
+                >
+
+                <span
+                  class="poem-line poem-stanza-gap"
+                  data-start="42"
+                  data-end="48"
+                  >Dhe thënia e vjetër e Heraklitit</span
+                >
+                <span class="poem-line" data-start="48" data-end="53"
+                  >Seç m’u kujtua sot për dreq:</span
+                >
+                <span class="poem-line" data-start="53" data-end="58"
+                  >“Të zgjuarit janë bashkë në botë,</span
+                >
+                <span class="poem-line" data-start="58" data-end="64"
+                  >Kurse të fjeturit janë veç”.</span
+                >
+
+                <span
+                  class="poem-line poem-stanza-gap"
+                  data-start="64"
+                  data-end="69"
+                  >Në ç’ëndërr kemi rënë kaq keq,</span
+                >
+                <span class="poem-line" data-start="69" data-end="74"
+                  >Që dot s’po zgjohemi ne vallë?...</span
+                >
+                <span class="poem-line" data-start="74" data-end="79"
+                  >Ca pika shiu ranë mbi qelq,</span
+                >
+                <span class="poem-line" data-start="79" data-end="85"
+                  >Dhe unë për ty seç ndjeva mall.</span
+                >
+              </div>
+            </div>
+
+            <div class="audio-player-box">
+              <div class="player-controls-row">
+                <button
+                  class="player-btn"
+                  id="playKadareBtn"
+                  title="Luaj / Ndalo Audion e Kadaresë"
+                >
+                  <i class="fa-solid fa-play" id="kadarePlayIcon"></i>
+                </button>
+                <div class="player-track-info">
+                  <div class="player-status-line">
+                    <span>Recitimi i Kadaresë</span>
+                    <span id="kadareTimeDisplay">00:00 / 01:24</span>
+                  </div>
+                  <div class="progress-bar-container" id="kadareSeekWrap">
+                    <div
+                      class="progress-bar-fill"
+                      id="kadareProgressFill"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       4. LINJA KOHORE E LETËRSISË SHQIPE
+       ========================================================================== -->
+    <section class="timeline-section" id="timeline">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">
+            <i class="fa-solid fa-hourglass-half"></i>
+            Kronologjia Historike
+          </span>
+          <h2 class="section-title">Linja Kohore</h2>
+          <p class="section-subtitle">
+            Nga gërmat e para të Mesharit deri te triumfi i fjalës moderne
+            shqipe
+          </p>
+          <div class="flourish-divider">❦ ✦ ❦</div>
+        </div>
+
+        <div class="filter-wrapper" id="timelineFilters">
+          <button class="filter-btn active" data-era="all">
+            Të Gjitha Epokat
+          </button>
+          <button class="filter-btn" data-era="vjeter">
+            Letërsia e Vjetër (XVI - XVIII)
+          </button>
+          <button class="filter-btn" data-era="rilindja">
+            Rilindja Kombëtare (XIX - 1912)
+          </button>
+          <button class="filter-btn" data-era="pavaresia">
+            Pavarësia & Modernizmi (1912 - 1944)
+          </button>
+          <button class="filter-btn" data-era="bashkekohore">
+            Bashkëkohore (1945 - Sot)
+          </button>
+        </div>
+
+        <div class="timeline-container" id="timelineList">
+          <!-- 1. Buzuku -->
+          <div class="timeline-item left" data-era="vjeter">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">Viti 1555</span>
+              <span class="timeline-era-tag">Letërsia e Vjetër Shqipe</span>
+              <h3 class="timeline-title">Gjon Buzuku & "Meshari"</h3>
+              <p class="timeline-desc">
+                Lindja e librit të parë të shkruar në gjuhën shqipe. Buzuku
+                shpreh dashurinë e kulluar për mëmëdhenë duke thirrur: "U Don
+                Gjoni, biri i Bdek Buzukut... tue u kujtuom se ndë gjuhët tanë
+                nukë kish gja të shkruom".
+              </p>
+              <div class="timeline-works">
+                <strong>Kryevepra:</strong> "Meshari" (1555, ruhet në
+                Bibliotekën e Vatikanit).
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Budi & Bogdani -->
+          <div class="timeline-item right" data-era="vjeter">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">1618 - 1685</span>
+              <span class="timeline-era-tag">Letërsia e Vjetër Shqipe</span>
+              <h3 class="timeline-title">Pjetër Budi & Pjetër Bogdani</h3>
+              <p class="timeline-desc">
+                Bogdani boton në Padovë "Çetën e Profetëve" (1685), kryeveprën e
+                prozës filozofike e teologjike, ndërsa Budi pasuron poezinë me
+                vjershat e para lirike shqip.
+              </p>
+              <div class="timeline-works">
+                <strong>Kryeveprat:</strong> "Cuneus Prophetarum" (1685),
+                "Doktrina e Kërshtenë" (1618).
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. De Rada -->
+          <div class="timeline-item left" data-era="rilindja">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">Viti 1836</span>
+              <span class="timeline-era-tag">Rilindja Kombëtare</span>
+              <h3 class="timeline-title">
+                Jeronim De Rada & "Këngët e Milosaut"
+              </h3>
+              <p class="timeline-desc">
+                Agimi i Rilindjes Kombëtare. Poema liriko-epike e De Radës
+                bashkoi dashurinë njerëzore me thirrjen e zjarrtë për lirinë e
+                tokës së të parëve.
+              </p>
+              <div class="timeline-works">
+                <strong>Kryeveprat:</strong> "Këngët e Milosaut", "Serafina
+                Topia", gazeta "Fiamuri i Arbërit".
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Naim Frashëri -->
+          <div class="timeline-item right" data-era="rilindja">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">1886 - 1898</span>
+              <span class="timeline-era-tag">Rilindja Kombëtare</span>
+              <h3 class="timeline-title">Naim Frashëri - Apostulli i Kombit</h3>
+              <p class="timeline-desc">
+                Bilbili i gjuhës shqipe himnizoi bukuritë e natyrës dhe
+                historinë tonë me "Bagëti e Bujqësi" dhe "Histori e
+                Skënderbeut", duke u bërë zëri shpirtëror i çdo shqiptari.
+              </p>
+              <div class="timeline-works">
+                <strong>Kryeveprat:</strong> "Bagëti e Bujqësi", "Luletë e
+                Verës", "Histori e Skënderbeut".
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Gjergj Fishta & Kongresi i Manastirit -->
+          <div class="timeline-item left" data-era="rilindja">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">1902 - 1908</span>
+              <span class="timeline-era-tag">Rilindja Kombëtare</span>
+              <h3 class="timeline-title">
+                Gjergj Fishta & Kongresi i Manastirit
+              </h3>
+              <p class="timeline-desc">
+                Fishta nis "Lahutën e Malcís" dhe drejton Kongresin e Manastirit
+                (1908) ku u shenjtërua alfabeti i unifikuar latin i gjuhës
+                shqipe.
+              </p>
+              <div class="timeline-works">
+                <strong>Kryeveprat:</strong> "Lahuta e Malcís", "Mrizi i
+                Zâneve", "Anzat e Parnasit".
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Modernizmi: Poradeci & Migjeni -->
+          <div class="timeline-item right" data-era="pavaresia">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">1920 - 1938</span>
+              <span class="timeline-era-tag">Pavarësia & Modernizmi</span>
+              <h3 class="timeline-title">Lasgushi, Migjeni & Koliqi</h3>
+              <p class="timeline-desc">
+                Lasgush Poradeci krijon lirikën më muzikore me "Vallen e Yjeve",
+                ndërsa Migjeni shpërthen me revoltën sociale dhe vargun e lirë
+                te "Vargjet e Lira".
+              </p>
+              <div class="timeline-works">
+                <strong>Kryeveprat:</strong> "Vallja e Yjeve", "Vargjet e Lira",
+                "Hija e Maleve".
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Ismail Kadare -->
+          <div class="timeline-item left" data-era="bashkekohore">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">Viti 1963 - Sot</span>
+              <span class="timeline-era-tag">Bashkëkohore</span>
+              <h3 class="timeline-title">Ismail Kadare & Jehona Universale</h3>
+              <p class="timeline-desc">
+                Me botimin e "Gjeneralit të Ushtrisë së Vdekur", Kadare e vendos
+                letërsinë shqipe në elitën e letërsisë botërore, duke trajtuar
+                mitet ballkanike me mjeshtëri madhështore.
+              </p>
+              <div class="timeline-works">
+                <strong>Kryeveprat:</strong> "Gjenerali i Ushtrisë së Vdekur",
+                "Prill i Thyer", "Pallati i Ëndrrave".
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Dritëro Agolli & Martin Camaj -->
+          <div class="timeline-item right" data-era="bashkekohore">
+            <div class="timeline-marker"></div>
+            <div class="timeline-card">
+              <span class="timeline-year">1970 - 2017</span>
+              <span class="timeline-era-tag">Bashkëkohore</span>
+              <h3 class="timeline-title">Dritëro Agolli & Martin Camaj</h3>
+              <p class="timeline-desc">
+                Agolli solli mençurinë e tokës, shpirtin lirik dhe satirën me
+                "Shokun Zylo", ndërsa Camaj zhvilloi në diasporë lirikën
+                hermetike të kulluar veriore.
+              </p>
+              <div class="timeline-works">
+                <strong>Kryeveprat:</strong> "Shkëlqimi dhe Rënia e Shokut
+                Zylo", "Pelegrini i Vonuar", "Rrathë".
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       5. SEKSIONI AUTORËT
+       ========================================================================== -->
+    <section class="authors-section" id="autoret">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">
+            <i class="fa-solid fa-users"></i>
+            Penat e Ndritura
+          </span>
+          <h2 class="section-title">Autorët</h2>
+          <p class="section-subtitle">
+            Eksploro jetën, kryeveprat dhe portretet e vërteta të figurave
+            madhore kombëtare
+          </p>
+          <div class="flourish-divider">❦ ✦ ❦</div>
+        </div>
+
+        <div class="catalog-search-bar">
+          <div class="search-input-wrapper">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              id="authorSearchInput"
+              class="search-input"
+              placeholder="Kërko autorin, veprën ose periudhën letrare..."
+            />
+          </div>
+        </div>
+
+        <div class="filter-wrapper" id="authorEraFilters">
+          <button class="filter-btn active" data-filter="all">
+            Të Gjithë (13)
+          </button>
+          <button class="filter-btn" data-filter="vjeter">
+            Letërsia e Vjetër
+          </button>
+          <button class="filter-btn" data-filter="rilindja">Rilindja</button>
+          <button class="filter-btn" data-filter="modernizmi">
+            Modernizmi
+          </button>
+          <button class="filter-btn" data-filter="bashkekohore">
+            Bashkëkohore
+          </button>
+        </div>
+
+        <div class="authors-grid" id="authorsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       MODAL I AUTORIT
+       ========================================================================== -->
+    <div class="modal-backdrop" id="authorModal">
+      <div class="modal-content">
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Mbyll">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-header-section">
+          <img src="" alt="" class="modal-photo-lg" id="modalPhoto" />
+          <div class="modal-title-wrap">
+            <h2 id="modalAuthorName">Emri i Autorit</h2>
+            <div class="modal-period" id="modalAuthorYears">
+              Vitet & Periudha
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-body-section">
+          <h4><i class="fa-solid fa-book-open"></i> Biografia Letrare</h4>
+          <p id="modalAuthorBio">Teksti...</p>
+        </div>
+
+        <div class="modal-body-section">
+          <h4><i class="fa-solid fa-feather"></i> Ndikimi në Gjuhën Shqipe</h4>
+          <p id="modalAuthorImpact">Ndikimi...</p>
+        </div>
+
+        <div class="modal-body-section">
+          <h4>
+            <i class="fa-solid fa-layer-group"></i> Kryeveprat Monumentale
+          </h4>
+          <div class="modal-works-list" id="modalAuthorWorks"></div>
+        </div>
+
+        <div class="modal-body-section" style="margin-bottom: 0">
+          <h4><i class="fa-solid fa-quote-left"></i> Citat i Pavdekshëm</h4>
+          <div
+            class="author-quote-snippet"
+            id="modalQuoteSnippet"
+            style="font-size: 1.1rem; margin-bottom: 0"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+       6. KUIZI INTERAKTIV
+       ========================================================================== -->
+    <section class="quiz-section" id="kuizi">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            Pyetësori Letrar
+          </span>
+          <h2 class="section-title">Kuizi</h2>
+          <p class="section-subtitle">
+            Zbulo cili personazh nga letërsia shqipe mishëron më së miri
+            shpirtin tënd
+          </p>
+          <div class="flourish-divider">❦ ✦ ❦</div>
+        </div>
+
+        <div class="quiz-box">
+          <div class="quiz-progress-bar-container">
+            <div class="quiz-progress-bar" id="quizProgressBar"></div>
+          </div>
+
+          <div id="quizQuestionView">
+            <div class="quiz-header-status">
+              <span id="quizStepLabel">Pyetja 1 nga 5</span>
+              <span id="quizCategoryLabel">Zgjedhja Morale</span>
+            </div>
+
+            <h3 class="quiz-question-title" id="quizQuestionText">
+              Si reagon kur përballesh me një padrejtësi apo një dilemë të
+              thellë jetësore?
+            </h3>
+
+            <div class="quiz-options-list" id="quizOptionsList"></div>
+          </div>
+
+          <div class="quiz-result-view" id="quizResultView">
+            <div class="result-badge-character">Profili Yt Letrar</div>
+            <h2 class="result-character-name" id="resultCharacterName">
+              Gjorg Berisha
+            </h2>
+            <div class="result-source-work" id="resultSourceWork">
+              nga kryevepra "Prill i Thyer" (Ismail Kadare)
+            </div>
+
+            <p class="result-description" id="resultDescription">
+              Përshkrimi...
+            </p>
+
+            <div class="result-book-box">
+              <div class="result-book-icon">
+                <i class="fa-solid fa-book-bookmark"></i>
+              </div>
+              <div>
+                <h4
+                  style="
+                    font-family: var(--font-heading);
+                    color: var(--text-dark);
+                    margin-bottom: 0.15rem;
+                  "
+                >
+                  Libri i rekomanduar për këtë Tetor:
+                </h4>
+                <p
+                  id="resultBookRecommendation"
+                  style="
+                    font-size: 0.94rem;
+                    color: var(--gold-primary);
+                    font-weight: 700;
+                  "
+                ></p>
+              </div>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                gap: 0.8rem;
+                flex-wrap: wrap;
+              "
+            >
+              <button class="btn btn-gold" id="restartQuizBtn">
+                <i class="fa-solid fa-rotate-right"></i>
+                Bëj Kuizin Përsëri
+              </button>
+              <button class="btn btn-outline" id="copyResultBtn">
+                <i class="fa-solid fa-share-nodes"></i>
+                Kopjo Rezultatin
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+       7. SHTEGU I CITATEVE
+       ========================================================================== -->
+    <section class="quotes-section" id="citate">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">
+            <i class="fa-solid fa-quote-left"></i>
+            Fjala e Artë
+          </span>
+          <h2 class="section-title">Citate</h2>
+          <p class="section-subtitle">
+            Perla të mendimit dhe lirikës nga penat më të shquara të kombit
+            shqiptar
+          </p>
+          <div class="flourish-divider">❦ ✦ ❦</div>
+        </div>
+
+        <div class="quote-generator-card">
+          <div class="quote-text-display" id="quoteTextDisplay">
+            "Ti Shqipëri, më jep nder, më jep emrin shqipëtar, zemrën ti ma
+            mbush me plot dëshirë..."
+          </div>
+          <div class="quote-author-display" id="quoteAuthorDisplay">
+            Naim Frashëri
+          </div>
+          <div class="quote-work-display" id="quoteWorkDisplay">
+            nga poema "Bagëti e Bujqësi" (1886)
+          </div>
+
+          <div class="quote-actions">
+            <button class="btn btn-gold" id="newQuoteBtn">
+              <i class="fa-solid fa-shuffle"></i>
+              Gjenero Citat Shqip
+            </button>
+            <button class="btn btn-outline" id="copyQuoteBtn">
+              <i class="fa-solid fa-copy"></i>
+              Kopjo Citatin
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toast -->
+    <div class="toast-notification" id="toast">
+      <i
+        class="fa-solid fa-circle-check"
+        style="color: var(--gold-primary)"
+      ></i>
+      <span id="toastMsg">U krye me sukses!</span>
+    </div>
+
+    <!-- ==========================================================================
+       8. FOOTER
+       ========================================================================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <h3>TETORI • Muaji i Letërsisë Shqipe</h3>
+            <p>
+              Ky portal digjital u krijua për të kremtuar trashëgiminë e pasur
+              letrare shqipe, pasurimin e gjuhës dhe vlerat e larta atdhetare të
+              mishëruara në librat e autorëve tanë më të ndritur.
+            </p>
+            <div class="school-project-badge">
+              <i class="fa-solid fa-graduation-cap"></i>
+              Punuar me rastin e Muajit të Letërsisë Shqipe - Tetor
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Lundrimi</h4>
+            <ul class="footer-links">
+              <li><a href="#kreu">Kreu</a></li>
+              <li><a href="#recitime">Recitime</a></li>
+              <li><a href="#timeline">Linja Kohore</a></li>
+              <li><a href="#autoret">Autorët</a></li>
+              <li><a href="#kuizi">Kuizi</a></li>
+              <li><a href="#citate">Citate</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Vlerat Letrare</h4>
+            <ul class="footer-links">
+              <li><a href="#timeline">1555 - Meshar i Buzukut</a></li>
+              <li><a href="#timeline">1908 - Kongresi i Manastirit</a></li>
+              <li><a href="#autoret">Romantizmi i Rilindjes</a></li>
+              <li><a href="#autoret">Modernizmi & Avangarda</a></li>
+              <li><a href="#autoret">Klasikët Bashkëkohorë</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>
+            © Tetor • Letërsia Shqiptare. Të gjitha të drejtat të rezervuara.
+          </div>
+          <a
+            href="#kreu"
+            style="
+              color: var(--gold-primary);
+              text-decoration: none;
+              font-weight: 700;
+            "
+          >
+            Kthehu Lart <i class="fa-solid fa-arrow-up"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ==========================================================================
+       JAVASCRIPT LOGIC
+       ========================================================================== */
+  -->
+    <script>
+      /* ==========================================================================
+       DATABASE E AUTORËVE ME FOTOGRAFI DHE BIO
+       ========================================================================== */
+      const AUTHORS_DATABASE = [
+        {
+          id: "kadare",
+          name: "Ismail Kadare",
+          years: "1936 - 2024",
+          era: "bashkekohore",
+          eraLabel: "Bashkëkohore",
+          field: "Roman & Poezi",
+          photo:
+            "https://upload.wikimedia.org/wikipedia/commons/2/24/Ismail_Kadare_%28portret%29.jpg",
+          fallbackPhoto:
+            "https://upload.wikimedia.org/wikipedia/commons/5/57/Ismail_Kadare.jpg",
+          quote:
+            "Letërsia e madhe është gjithmonë një formë lirie, një dritare e hapur drejt së pamundurës.",
+          bio: "Ismail Kadare është shkrimtari më i njohur dhe më i përkthyer shqiptar në botë. Fitues i çmimit prestigjioz 'Man Booker International' dhe 'Princi i Asturias'. Përmes veprave të tij, ai zbuloi thellësitë e historisë, mitit të besës dhe psikologjisë shqiptare.",
+          impact:
+            "E lartësoi gjuhën shqipe në majat e kulturës botërore, duke e pasuruar leksikun shqip me sintaksë të kristaltë e metafora universale.",
+          works: [
+            "Gjenerali i Ushtrisë së Vdekur (1963)",
+            "Prill i Thyer (1978)",
+            "Pallati i Ëndrrave (1981)",
+            "Kështjella (1970)",
+            "Kronikë në Gur (1971)",
+          ],
+        },
+        {
+          id: "agolli",
+          name: "Dritëro Agolli",
+          years: "1931 - 2017",
+          era: "bashkekohore",
+          eraLabel: "Bashkëkohore",
+          field: "Poezi & Proza Satirike",
+          photo:
+            "https://upload.wikimedia.org/wikipedia/commons/8/8b/Driteroagolli_0005-728x430.jpg",
+          fallbackPhoto:
+            "https://upload.wikimedia.org/wikipedia/commons/a/a1/Drit%C3%ABro_Agolli_2016_stamp_of_Albania.jpg",
+          quote:
+            "Pelegrin i vonuar jam në këtë botë, kërkoj një dritare ku drita s'është fikur.",
+          bio: "Patriarku i lirikës dhe prozës shqipe. Agolli solli në letërsi ngrohtësinë njerëzore, dhembshurinë për tokën e bukun, si dhe kryeveprën e satirës shqiptare që goditi veset burokratike me një mençuri të thellë popullore.",
+          impact:
+            "Futja e thjeshtësisë madhështore popullore në vargun modern dhe pasurimi i gjuhës me frazeologji të gjallë nga jeta e tradita shqiptare.",
+          works: [
+            "Shkëlqimi dhe Rënia e Shokut Zylo (1973)",
+            "Pelegrini i Vonuar (1993)",
+            "Nënë Shqipëri (1974)",
+            "Trëndafili në Gotë (1980)",
+          ],
+        },
+        {
+          id: "naimi",
+          name: "Naim Frashëri",
+          years: "1846 - 1900",
+          era: "rilindja",
+          eraLabel: "Rilindja Kombëtare",
+          field: "Poezi & Epikë",
+          photo:
+            "https://upload.wikimedia.org/wikipedia/commons/1/1c/NAIMFRASHERI.jpg",
+          fallbackPhoto:
+            "https://upload.wikimedia.org/wikipedia/commons/e/e3/Naim_Frash%C3%ABri_%28i_ri%29.jpg",
+          quote:
+            "Ti Shqipëri, më jep nder, më jep emrin shqipëtar, zemrën ti ma mbush me plot dëshirë...",
+          bio: "Poeti kombëtar i shqiptarëve dhe figura qendrore e Rilindjes Kombëtare. Naim Frashëri me mendimin e tij iluminist predikoi dashurinë për atdheun, harmoninë vëllazërore dhe dritën e diturisë.",
+          impact:
+            "Pastroi dhe lartësoi gjuhën shqipe, duke e kthyer atë në një vegël të ëmbël poetike dhe filozofike për kombin.",
+          works: [
+            "Bagëti e Bujqësi (1886)",
+            "Luletë e Verës (1890)",
+            "Histori e Skënderbeut (1898)",
+            "Qerbelaja (1898)",
+          ],
+        },
+        {
+          id: "fishta",
+          name: "Gjergj Fishta",
+          years: "1871 - 1940",
+          era: "rilindja",
+          eraLabel: "Rilindja & Pavarësia",
+          field: "Epos Heroik & Dramë",
+          photo:
+            "https://upload.wikimedia.org/wikipedia/commons/2/21/Gjergj_Fishta_%28portret%29.jpg",
+          fallbackPhoto:
+            "https://upload.wikimedia.org/wikipedia/commons/1/1c/NAIMFRASHERI.jpg",
+          quote:
+            "Pra, mallkue kjoftë kush qet ngatërresa, ndër këtë vllazën të nji gjaku...",
+          bio: "Françeskani erudit, i cilësuar nga kritika evropiane si 'Homeri Shqiptar'. Kryetar i Komisionit të Alfabetit në Kongresin e Manastirit (1908) dhe autori i eposit monumental 'Lahuta e Malcís'.",
+          impact:
+            "I dha dialektit gegë fuqinë e eposit klasik, duke dëshmuar pasurinë e pashtershme dramatike të gjuhës veriore.",
+          works: [
+            "Lahuta e Malcís (1902-1937)",
+            "Mrizi i Zâneve (1913)",
+            "Anzat e Parnasit (1907)",
+            "Juda Makabe (1920)",
+          ],
+        },
+        {
+          id: "poradeci",
+          name: "Lasgush Poradeci",
+          years: "1899 - 1987",
+          era: "modernizmi",
+          eraLabel: "Modernizmi",
+          field: "Lirikë & Simbolizëm",
+          photo:
+            "https://upload.wikimedia.org/wikipedia/commons/a/ab/Lasgush_Poradeci_%28portrait%29.jpg",
+          fallbackPhoto:
+            "https://upload.wikimedia.org/wikipedia/commons/6/6d/Migjeni_%28portrait%29.jpg",
+          quote:
+            "Kush mund t'i falë shpirtit qetësinë, kur zemra digjet në zjarr të dashurisë...",
+          bio: "Magjistari i vargut shqip dhe lirikës filozofike. Duke jetuar pranë Liqenit të Ohrit në Pogradec, Poradeci krijoi një univers muzikor unik me rima e ngjyrime tingëllore magjepsëse.",
+          impact:
+            "E ngriti gjuhën poetike shqipe në shkallën më të lartë të rafinimit artistik dhe muzikalitetit simbolist evropian.",
+          works: [
+            "Vallja e Yjeve (1933)",
+            "Ylli i Zemrës (1937)",
+            "Kamadeva",
+            "Përkthime mjeshtërore të Gëtes e Pushkinit",
+          ],
+        },
+        {
+          id: "migjeni",
+          name: "Migjeni (Millosh Gjergj Nikolla)",
+          years: "1911 - 1938",
+          era: "modernizmi",
+          eraLabel: "Modernizmi",
+          field: "Poezi Rebele & Proza e Shkurtër",
+          photo:
+            "https://upload.wikimedia.org/wikipedia/commons/6/6d/Migjeni_%28portrait%29.jpg",
+          fallbackPhoto:
+            "https://upload.wikimedia.org/wikipedia/commons/a/ab/Lasgush_Poradeci_%28portrait%29.jpg",
+          quote:
+            "O si nuk kam një grusht të fuqishëm, malit që hesht t'i biem në mes!",
+          bio: "Uragani i ri i letërsisë sonë që jetoi vetëm 26 vjet por kreu një revolucion estetik. Me një dhembshuri të thellë për të varfërit dhe një urrejtje kundër hipokrizisë, ai hapi rrugën e vargut të lirë modern.",
+          impact:
+            "Theu metrikën tradicionale, duke futur vargun e lirë ekspresionist dhe vërtetësinë e tronditshme sociale në prozë.",
+          works: [
+            "Vargjet e Lira (1936)",
+            "Bukën Tonë të Përditshme",
+            "Luli i Vocërr",
+            "Legjenda e Misrit",
+          ],
+        },
+        {
+          id: "konica",
+          name: "Faik Konica",
+          years: "1875 - 1942",
+          era: "rilindja",
+          eraLabel: "Rilindja & Pavarësia",
+          field: "Eseistikë & Kritikë Elitare",
+          photo:
+            "https://upload.wikimedia.org/wikipedia/commons/6/61/Faik_Konica.jpg",
+          fallbackPhoto:
+            "https://upload.wikimedia.org/wikipedia/commons/3/3d/Faik_Konica_c_1918.jpg",
+          quote:
+            "Armiku më i madh i Shqipërisë është padituria dhe plogështia e mendjes.",
+          bio: "Mjeshtri i prozës moderne, stilisti më i hollë dhe eseisti me kulturë enciklopedike perëndimore. Me revistën 'Albania' në Bruksel dhe Londër, formoi brezin e ri intelektual me shije elitare.",
+          impact:
+            "Pajisi gjuhën shqipe me një stil elitar, konciz, të mprehtë e elegant të esesë dhe polemikës publicistike.",
+          works: [
+            "Revista 'Albania' (1897-1909)",
+            "Një Ambasador në Uashington",
+            "Doktor Gjilpëra (1924)",
+          ],
+        },
+        {
+          id: "noli",
+          name: "Fan S. Noli",
+          years: "1882 - 1965",
+          era: "pavaresia",
+          eraLabel: "Pavarësia & Rilindja",
+          field: "Përkthim Virtuoz, Poezi & Histori",
+          photo:
+            "https://upload.wikimedia.org/wikipedia/commons/2/29/Fan_Noli_%28portret%29.jpg",
+          fallbackPhoto:
+            "https://upload.wikimedia.org/wikipedia/commons/6/61/Faik_Konica.jpg",
+          quote: "Mbaju nëno, mos ki frikë, se ke djemtë në Amerikë!",
+          bio: "Poliglot, historian, muzikolog dhe burrë shteti. Përkthyes gjenial i Shekspirit, Servantesit, Omar Khajamit dhe Ibsenit në gjuhën shqipe.",
+          impact:
+            "Përkthimet e tij e ngritën shqipen në rangun e gjuhëve me aftësi të pashtershme shprehëse klasike botërore.",
+          works: [
+            "Historia e Skënderbeut (1921)",
+            "Albumi (1948)",
+            "Përkthimet e Hamletit, Otellos, Makbethit",
+          ],
+        },
+        {
+          id: "koliqi",
+          name: "Ernest Koliqi",
+          years: "1903 - 1975",
+          era: "modernizmi",
+          eraLabel: "Modernizmi",
+          field: "Novela Moderne & Folklor",
+          photo:
+            "https://upload.wikimedia.org/wikipedia/commons/4/47/Ernest_Koliqi_%28portret%29.jpg",
+          fallbackPhoto:
+            "https://upload.wikimedia.org/wikipedia/commons/a/ab/Lasgush_Poradeci_%28portrait%29.jpg",
+          quote:
+            "Kultura është shpirti i gjallë që mban bashkë një komb në ditët më të vështira.",
+          bio: "Themeluesi i novelës moderne shqiptare, studiues dhe ministër i arsimit që dërgoi qindra mësues shqiptarë në Kosovë e Maqedoni për të çelur shkollat e para shqipe.",
+          impact:
+            "Soli psikologjinë e hollë të qytetit dhe malësisë shkodrane në strukturën e tregimit modern perëndimor.",
+          works: [
+            "Hija e Maleve (1929)",
+            "Tregtar Flamujsh (1935)",
+            "Pasqyrat e Narçizit (1936)",
+          ],
+        },
+        {
+          id: "camaj",
+          name: "Martin Camaj",
+          years: "1925 - 1992",
+          era: "bashkekohore",
+          eraLabel: "Bashkëkohore",
+          field: "Lirikë Hermetike & Gjuhësi",
+          photo:
+            "https://upload.wikimedia.org/wikipedia/commons/e/e5/Martin_Camaj.jpg",
+          fallbackPhoto:
+            "https://upload.wikimedia.org/wikipedia/commons/4/47/Ernest_Koliqi_%28portret%29.jpg",
+          quote:
+            "Gjuha shqipe është si guri i kullës: sa më e lashtë, aq më e fortë mbetet.",
+          bio: "Albanologu dhe shkrimtari që jetoi në Mynih. Poezia e Camajt shquhet për thellësinë hermetike, lidhjen intime me bjeshkët dhe kristalizimin e fjalës së pastër shqipe.",
+          impact:
+            "Modernizoi gjuhën letrare në diasporë, duke integruar arkaizmat e pasura veriore në lirikën avangardë evropiane.",
+          works: [
+            "Njeriu më vete e me tjerë (1953)",
+            "Rrathë (1978)",
+            "Karpa (1987)",
+            "Palimpsest (1991)",
+          ],
+        },
+        {
+          id: "derada",
+          name: "Jeronim De Rada",
+          years: "1814 - 1903",
+          era: "rilindja",
+          eraLabel: "Rilindja Kombëtare",
+          field: "Poemë Romantike Arbëreshe",
+          photo:
+            "https://upload.wikimedia.org/wikipedia/commons/5/51/Jeronim_de_Rada_%28portret%29.jpg",
+          fallbackPhoto:
+            "https://upload.wikimedia.org/wikipedia/commons/1/1c/NAIMFRASHERI.jpg",
+          quote:
+            "Dallgët e detit nuk e fshijnë dot dashurinë për atdheun e të parëve tanë.",
+          bio: "Mendimtari dhe poeti i madh arbëresh nga Kalabria, themeluesi i romantizmit shqiptar. Botoi gazetën e parë shqiptare 'Fiamuri i Arbërit' dhe mbajti të gjallë kujtesën e Skënderbeut.",
+          impact:
+            "Ndërlidhi kulturën e arbëreshëve të Italisë me lëvizjen e madhe të Rilindjes në Shqipëri.",
+          works: [
+            "Këngët e Milosaut (1836)",
+            "Serafina Topia (1839)",
+            "Rapsodi të një poeme arbëreshe",
+          ],
+        },
+        {
+          id: "bogdani",
+          name: "Pjetër Bogdani",
+          years: "1630 - 1689",
+          era: "vjeter",
+          eraLabel: "Letërsia e Vjetër",
+          field: "Prozë Filozofike & Shkencore",
+          photo:
+            "https://upload.wikimedia.org/wikipedia/commons/4/42/Pjet%C3%ABr_Bogdani_1989_Albania_stamp.jpg",
+          fallbackPhoto:
+            "https://upload.wikimedia.org/wikipedia/commons/d/dc/Buzuku_meshari.jpg",
+          quote:
+            "Dija dhe fjala e kulluar janë stolia më e çmuar e mendjes njerëzore.",
+          bio: "Përfaqësuesi më i shquar i letërsisë së vjetër shqipe, doktor i filozofisë dhe teologjisë. Ai shkroi 'Çetën e Profetëve', vepër madhore mbi kozmologjinë, astronominë dhe teologjinë.",
+          impact:
+            "Krijoi një terminologji të pasur shkencore e filozofike në gjuhën shqipe, duke dëshmuar pjekurinë e saj intelektuale.",
+          works: ["Cuneus Prophetarum - Çeta e Profetëve (Padovë, 1685)"],
+        },
+        {
+          id: "buzuku",
+          name: "Gjon Buzuku",
+          years: "Shekulli XVI",
+          era: "vjeter",
+          eraLabel: "Letërsia e Vjetër",
+          field: "Tekst i Parë i Shkruar Shqip",
+          photo:
+            "https://upload.wikimedia.org/wikipedia/commons/d/dc/Buzuku_meshari.jpg",
+          fallbackPhoto:
+            "https://upload.wikimedia.org/wikipedia/commons/4/42/Pjet%C3%ABr_Bogdani_1989_Albania_stamp.jpg",
+          quote:
+            "U Don Gjoni, biri i Bdek Buzukut, tue u kujtuom se ndë gjuhët tanë nukë kish gja të shkruom...",
+          bio: "Kleriku atdhetar që shtypi veprën e parë të njohur në gjuhën shqipe: 'Meshari' (1555), me dëshirën e madhe për të ndriçuar bashkëkombësit në gjuhën amtare.",
+          impact:
+            "Përcakton fillimin e historisë së shkruar të shqipes, dëshmi themelore e albanologjisë botërore.",
+          works: [
+            "Meshari (1555 - Ruhet ekzemplari i vetëm në Bibliotekën e Vatikanit)",
+          ],
+        },
+      ];
+
+      /* ==========================================================================
+       CITATET
+       ========================================================================== */
+      const QUOTES_DATABASE = [
+        {
+          quote:
+            "Ti Shqipëri, më jep nder, më jep emrin shqipëtar, zemrën ti ma mbush me plot dëshirë...",
+          author: "Naim Frashëri",
+          work: "nga poema 'Bagëti e Bujqësi' (1886)",
+        },
+        {
+          quote:
+            "Letërsia e madhe është gjithmonë një formë lirie, një dritare e hapur drejt së pamundurës.",
+          author: "Ismail Kadare",
+          work: "nga esetë letrare",
+        },
+        {
+          quote:
+            "Kush mund t'i falë shpirtit qetësinë, kur zemra digjet në zjarr të dashurisë...",
+          author: "Lasgush Poradeci",
+          work: "nga 'Vallja e Yjeve' (1933)",
+        },
+        {
+          quote:
+            "O si nuk kam një grusht të fuqishëm, malit që hesht t'i biem në mes!",
+          author: "Migjeni",
+          work: "nga 'Vargjet e Lira' (1936)",
+        },
+        {
+          quote:
+            "Edhe hana do ta dije, edhe dielli do t'ket pa, se për qark t'kësaj rrokullije, si Shqypnia vend nuk ka!",
+          author: "Gjergj Fishta",
+          work: "nga 'Lahuta e Malcís'",
+        },
+        {
+          quote:
+            "Pelegrin i vonuar jam në këtë botë, kërkoj një dritare ku drita s'është fikur...",
+          author: "Dritëro Agolli",
+          work: "nga 'Pelegrini i Vonuar' (1993)",
+        },
+        {
+          quote:
+            "Armiku më i madh i njeriut është padituria dhe plogështia e mendjes së tij.",
+          author: "Faik Konica",
+          work: "nga publicistika e 'Albania'",
+        },
+        {
+          quote:
+            "Gjuha shqipe ka shijen e bukës së ngrohtë dhe freskinë e kulluar të burimeve të maleve.",
+          author: "Mitrush Kuteli",
+          work: "nga tregimet e lashta shqiptare",
+        },
+        {
+          quote:
+            "Për dashuni të botës tonë desha me shkruom nji libër shqip, që të ndriçohet mendja e njeriut.",
+          author: "Gjon Buzuku",
+          work: "nga pasthënia e 'Mesharit' (1555)",
+        },
+        {
+          quote:
+            "Dielli me rrezet e tij ndriçon trupin, por dituria e lartë shndrit e zbukuron përjetësisht shpirtin.",
+          author: "Pjetër Bogdani",
+          work: "nga 'Çeta e Profetëve' (1685)",
+        },
+        {
+          quote: "Mbaju nëno, mos ki frikë, se ke djemtë në Amerikë!",
+          author: "Fan S. Noli",
+          work: "nga poezitë atdhetare",
+        },
+        {
+          quote:
+            "Dallgët e detit nuk e fshijnë dot kurrë dashurinë për atdheun e të parëve tanë.",
+          author: "Jeronim De Rada",
+          work: "nga 'Këngët e Milosaut' (1836)",
+        },
+        {
+          quote:
+            "Gjuha shqipe është si guri i kullës: sa më e lashtë, aq më e fortë mbetet përballë stuhive.",
+          author: "Martin Camaj",
+          work: "nga esetë dhe poezia",
+        },
+        {
+          quote:
+            "Kultura është shpirti i gjallë që mban bashkë një komb në ditët më të errëta.",
+          author: "Ernest Koliqi",
+          work: "nga 'Pasqyrat e Narçizit'",
+        },
+      ];
+
+      /* ==========================================================================
+       KUIZI
+       ========================================================================== */
+      const QUIZ_QUESTIONS = [
+        {
+          category: "Zgjedhja Morale",
+          question:
+            "Si reagon kur përballesh me një padrejtësi të madhe apo një dilemë të thellë jetësore?",
+          options: [
+            {
+              text: "Rebelohem me guxim, kërkoj të ndryshoj realitetin përmes fjalës së hapur dhe së vërtetës.",
+              type: "migjeni",
+            },
+            {
+              text: "I qëndroj besnik fjalës së dhënë (Besës) dhe kodit tim moral, edhe pse fati më rëndon mbi supe.",
+              type: "gjorg",
+            },
+            {
+              text: "Mbroj me vetëmohim pragun e shtëpisë dhe njerëzit e mi, pa u dorëzuar përpara asnjë kërcënimi.",
+              type: "gjergj",
+            },
+            {
+              text: "Vëzhgoj situatën me një ironi të hollë, mençuri dhe kërkoj thelbin filozofik të dobësive njerëzore.",
+              type: "zylo",
+            },
+          ],
+        },
+        {
+          category: "Mjedisi Shpirtëror",
+          question:
+            "Cili mjedis të sjell qetësinë dhe frymëzimin më të madh të brendshëm?",
+          options: [
+            {
+              text: "Një kullë e lashtë në malësitë e mbuluara me mjegull, ku koha dhe nderi duken të përjetshëm.",
+              type: "gjorg",
+            },
+            {
+              text: "Rrugicat plot jetë të një qyteti që lufton me shpresë për një agim të ri e të lirë.",
+              type: "migjeni",
+            },
+            {
+              text: "Bregu i qetë i një liqeni magjik në muzg ose një fushë e gjelbëruar plot cicërima.",
+              type: "liriku",
+            },
+            {
+              text: "Një dhomë studimi me libra klasikë, dorëshkrime dhe tym kafeje të ngrohtë.",
+              type: "zylo",
+            },
+          ],
+        },
+        {
+          category: "Qëllimi Jetësor",
+          question:
+            "Për cilën nga këto vlera do të doje të mbaheshe mend më së shumti?",
+          options: [
+            {
+              text: "Për guximin e pashoq për të thënë hapur atë që të tjerët ngurrojnë ta pëshpëritin.",
+              type: "migjeni",
+            },
+            {
+              text: "Për besnikërinë e hekurt, dinjitetin e lartë dhe përballjen heroike me fatin.",
+              type: "gjorg",
+            },
+            {
+              text: "Për trimërinë, qëndresën dhe dashurinë pa kufij për vëllezërit e atdheun.",
+              type: "gjergj",
+            },
+            {
+              text: "Për dashurinë e kulluar për fjalën e bukur shqipe, artin dhe dritën e diturisë.",
+              type: "liriku",
+            },
+          ],
+        },
+        {
+          category: "Koncepti i Fatit",
+          question:
+            "Si e koncepton përballjen e njeriut me kohën dhe sfidat e jetës?",
+          options: [
+            {
+              text: "Fati është një labirint i ndërlikuar ku ndërgjegjja jonë mbetet i vetmi udhërrëfyes.",
+              type: "gjorg",
+            },
+            {
+              text: "Njeriu duhet të luftojë deri në frymën e fundit; heshtja është armiku më i madh.",
+              type: "migjeni",
+            },
+            {
+              text: "Edhe me nëntë plagë në trup, njeriu nuk i përkulet arrogancës së të fortit.",
+              type: "gjergj",
+            },
+            {
+              text: "Jeta ka të qeshura e dhembje; mençuria dhe mirësia shërojnë çdo plagë.",
+              type: "zylo",
+            },
+          ],
+        },
+        {
+          category: "Romani i Jetës",
+          question:
+            "Nëse jeta jote do të botohej si libër këtë Tetor, cilit zhanër do t'i përkiste?",
+          options: [
+            {
+              text: "Një dramë ekzistenciale e thellë, plot atmosferë madhështore dhe mister.",
+              type: "gjorg",
+            },
+            {
+              text: "Një poemë rebele sociale e mbushur me dhembshuri të pastër njerëzore.",
+              type: "migjeni",
+            },
+            {
+              text: "Një baladë heroike legjendare e qëndresës dhe sakrificës.",
+              type: "gjergj",
+            },
+            {
+              text: "Një lirikë drithëruese me melodi liqenore dhe dashuri për fjalën e shkruar.",
+              type: "liriku",
+            },
+          ],
+        },
+      ];
+
+      const QUIZ_RESULTS = {
+        gjorg: {
+          name: "Gjorg Berisha",
+          source: "nga kryevepra 'Prill i Thyer' e Ismail Kadaresë",
+          desc: "Ti je një shpirt fisnik, i thellë dhe me ndërgjegje të lartë morale. E respekton fjalën e dhënë (Besën) dhe vlerat tradicionale, duke parë përtej sipërfaqes së gjërave me një elegancë të qetë e të pathyeshme.",
+          book: "“Prill i Thyer” nga Ismail Kadare",
+        },
+        migjeni: {
+          name: "Luli i Vocërr / Rebeli i Dhembshurisë",
+          source: "nga krijimtaria e pavdekshme e Migjenit",
+          desc: "Ti ke një zemër tejet të ndjeshme ndaj çdo padrejtësie dhe urren hipokrizinë. Beson tek e vërteta e zhveshur, tek arsimimi i të rinjve dhe ke guximin të ngresh zërin për dritë.",
+          book: "“Vargjet e Lira” nga Migjeni",
+        },
+        gjergj: {
+          name: "Gjergj Elez Alia",
+          source: "nga Baladat Popullore Shqiptare & Mitrush Kuteli",
+          desc: "Ti mishëron qëndresën, besnikërinë e hekurt dhe dashurinë e pakufishme për familjen. Pavarësisht vështirësive të jetës, gjen gjithmonë forcë për t'u ngritur dhe mbrojtur të drejtën tënde.",
+          book: "“Tregime të Moçme Shqiptare” nga Mitrush Kuteli",
+        },
+        zylo: {
+          name: "Vëzhguesi Mendjemprehtë (Demkë / Zylo)",
+          source: "nga 'Shkëlqimi dhe Rënia e Shokut Zylo' e Dritëro Agollit",
+          desc: "Ti posedon inteligjencë të hollë, humor të mprehtë dhe aftësi të lindur për të kuptuar psikologjinë njerëzore. Di të buzëqeshësh me botën duke ruajtur dashurinë për librin.",
+          book: "“Shkëlqimi dhe Rënia e Shokut Zylo” nga Dritëro Agolli",
+        },
+        liriku: {
+          name: "Liriku i Përjetshëm",
+          source: "frymëzuar nga Lasgush Poradeci & Naim Frashëri",
+          desc: "Ti je një romantik dhe adhurues i së bukurës. Ke një ndjeshmëri të lartë artistike për gjuhën e pasur shqipe, harmoninë e natyrës dhe ndjenjat e dlira njerëzore.",
+          book: "“Vallja e Yjeve” nga Lasgush Poradeci",
+        },
+      };
+
+      /* ==========================================================================
+       DOM LOGIC: RECITIME ME AUTO-SCROLL DOWN TË 4 VARGJEVE
+       ========================================================================== */
+      document.addEventListener("DOMContentLoaded", () => {
+        // Navbar & Links
+        const navbar = document.getElementById("navbar");
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+        const navLinksList = document.querySelectorAll(".nav-link");
+
+        // Toast
+        const toast = document.getElementById("toast");
+        const toastMsg = document.getElementById("toastMsg");
+
+        function showToast(msg) {
+          toastMsg.textContent = msg;
+          toast.classList.add("show");
+          setTimeout(() => toast.classList.remove("show"), 3000);
+        }
+
+        /* NAVBAR SCROLL & ACTIVE LINKS */
+        window.addEventListener("scroll", () => {
+          navbar.classList.toggle("scrolled", window.scrollY > 30);
+
+          const sections = [
+            "kreu",
+            "recitime",
+            "timeline",
+            "autoret",
+            "kuizi",
+            "citate",
+          ];
+          const pos = window.scrollY + 160;
+
+          sections.forEach((id) => {
+            const el = document.getElementById(id);
+            if (el) {
+              const top = el.offsetTop;
+              const h = el.offsetHeight;
+              if (pos >= top && pos < top + h) {
+                navLinksList.forEach((a) =>
+                  a.classList.toggle(
+                    "active",
+                    a.getAttribute("href") === `#${id}`,
+                  ),
+                );
+              }
+            }
+          });
+        });
+
+        menuToggle.addEventListener("click", () => {
+          navLinks.classList.toggle("open");
+          menuToggle.innerHTML = navLinks.classList.contains("open")
+            ? '<i class="fa-solid fa-xmark"></i>'
+            : '<i class="fa-solid fa-bars"></i>';
+        });
+
+        navLinksList.forEach((link) => {
+          link.addEventListener("click", () => {
+            navLinks.classList.remove("open");
+            menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+          });
+        });
+
+        /* ==========================================================================
+         AUDIO PLAYERS DHE NDJEKJA E VARGJEVE
+         ========================================================================== */
+        function formatTime(seconds) {
+          if (isNaN(seconds)) return "00:00";
+          const m = Math.floor(seconds / 60);
+          const s = Math.floor(seconds % 60);
+          return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
+        }
+
+        function bindRecitationPlayer(
+          audioId,
+          btnId,
+          iconId,
+          fillId,
+          timeId,
+          scrollBoxId,
+          seekWrapId,
+        ) {
+          const audio = document.getElementById(audioId);
+          const btn = document.getElementById(btnId);
+          const icon = document.getElementById(iconId);
+          const fill = document.getElementById(fillId);
+          const timeDisplay = document.getElementById(timeId);
+          const scrollBox = document.getElementById(scrollBoxId);
+          const seekWrap = document.getElementById(seekWrapId);
+          const lines = scrollBox.querySelectorAll(".poem-line");
+
+
+          btn.addEventListener("click", () => {
+            // Ndalo audion tjetër nëse po luan
+            const otherAudioId =
+              audioId === "agolliAudio" ? "kadareAudio" : "agolliAudio";
+            const otherAudio = document.getElementById(otherAudioId);
+            if (otherAudio && !otherAudio.paused) {
+              otherAudio.pause();
+            }
+
+            if (audio.paused) {
+              audio
+                .play()
+                .then(() => {
+                  btn.classList.add("playing");
+                  icon.className = "fa-solid fa-pause";
+                })
+                .catch((err) => {
+                  console.warn("Audio play:", err);
+                  showToast("Skedari audio po ngarkohet nga folderi...");
+                });
+            } else {
+              audio.pause();
+              btn.classList.remove("playing");
+              icon.className = "fa-solid fa-play";
+            }
+          });
+
+          audio.addEventListener("timeupdate", () => {
+            const current = audio.currentTime;
+            const duration = audio.duration || 1;
+            const pct = (current / duration) * 100;
+            fill.style.width = `${pct}%`;
+            timeDisplay.textContent = `${formatTime(current)} / ${formatTime(duration)}`;
+          });
+
+          audio.addEventListener("ended", () => {
+            btn.classList.remove("playing");
+            icon.className = "fa-solid fa-play";
+            fill.style.width = "0%";
+          });
+
+          audio.addEventListener("loadedmetadata", () => {
+            timeDisplay.textContent = `00:00 / ${formatTime(audio.duration)}`;
+          });
+
+          seekWrap.addEventListener("click", (e) => {
+            const rect = seekWrap.getBoundingClientRect();
+            const clickPos = (e.clientX - rect.left) / rect.width;
+            if (audio.duration) {
+              audio.currentTime = clickPos * audio.duration;
+            }
+          });
+        }
+
+        bindRecitationPlayer(
+          "agolliAudio",
+          "playAgolliBtn",
+          "agolliPlayIcon",
+          "agolliProgressFill",
+          "agolliTimeDisplay",
+          "agolliScrollBox",
+          "agolliSeekWrap",
+        );
+        bindRecitationPlayer(
+          "kadareAudio",
+          "playKadareBtn",
+          "kadarePlayIcon",
+          "kadareProgressFill",
+          "kadareTimeDisplay",
+          "kadareScrollBox",
+          "kadareSeekWrap",
+        );
+
+        /* TIMELINE FILTER */
+        const timelineFilters = document.getElementById("timelineFilters");
+        const timelineItems = document.querySelectorAll(".timeline-item");
+
+        timelineFilters.addEventListener("click", (e) => {
+          if (!e.target.classList.contains("filter-btn")) return;
+          timelineFilters
+            .querySelectorAll(".filter-btn")
+            .forEach((b) => b.classList.remove("active"));
+          e.target.classList.add("active");
+
+          const era = e.target.getAttribute("data-era");
+          timelineItems.forEach((item) => {
+            const itemEra = item.getAttribute("data-era");
+            item.style.display =
+              era === "all" || itemEra === era ? "block" : "none";
+          });
+        });
+
+        /* AUTORËT GRID & SEARCH */
+        const authorsGrid = document.getElementById("authorsGrid");
+        const authorSearchInput = document.getElementById("authorSearchInput");
+        const authorEraFilters = document.getElementById("authorEraFilters");
+
+        const authorModal = document.getElementById("authorModal");
+        const modalCloseBtn = document.getElementById("modalCloseBtn");
+        const modalPhoto = document.getElementById("modalPhoto");
+        const modalAuthorName = document.getElementById("modalAuthorName");
+        const modalAuthorYears = document.getElementById("modalAuthorYears");
+        const modalAuthorBio = document.getElementById("modalAuthorBio");
+        const modalAuthorImpact = document.getElementById("modalAuthorImpact");
+        const modalAuthorWorks = document.getElementById("modalAuthorWorks");
+        const modalQuoteSnippet = document.getElementById("modalQuoteSnippet");
+
+        function openModal(author) {
+          modalPhoto.src = author.photo;
+          modalPhoto.onerror = () => {
+            modalPhoto.src = author.fallbackPhoto;
+          };
+          modalAuthorName.textContent = author.name;
+          modalAuthorYears.textContent = `${author.years} • ${author.eraLabel} • ${author.field}`;
+          modalAuthorBio.textContent = author.bio;
+          modalAuthorImpact.textContent = author.impact;
+          modalQuoteSnippet.textContent = `“${author.quote}”`;
+
+          modalAuthorWorks.innerHTML = "";
+          author.works.forEach((w) => {
+            const tag = document.createElement("span");
+            tag.className = "modal-work-tag";
+            tag.textContent = w;
+            modalAuthorWorks.appendChild(tag);
+          });
+
+          authorModal.classList.add("active");
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeModal() {
+          authorModal.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+
+        modalCloseBtn.addEventListener("click", closeModal);
+        authorModal.addEventListener("click", (e) => {
+          if (e.target === authorModal) closeModal();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeModal();
+        });
+
+        function renderAuthors(list) {
+          authorsGrid.innerHTML = "";
+          if (list.length === 0) {
+            authorsGrid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 2.5rem 1rem; color: var(--text-muted);">
+              <i class="fa-solid fa-feather" style="font-size: 1.8rem; color: var(--gold-primary); margin-bottom: 0.5rem; display: block;"></i>
+              Nuk u gjet asnjë autor me këtë kërkim.
+            </div>
+          `;
+            return;
+          }
+
+          list.forEach((author) => {
+            const card = document.createElement("div");
+            card.className = "author-card";
+            card.innerHTML = `
+            <div>
+              <div class="author-card-header">
+                <div class="author-portrait-frame">
+                  <img src="${author.photo}" alt="${author.name}" class="author-portrait-img" onerror="this.src='${author.fallbackPhoto}';">
+                </div>
+                <div class="author-meta">
+                  <h3>${author.name}</h3>
+                  <span class="author-years">${author.years}</span>
+                </div>
+              </div>
+
+              <div class="author-badges">
+                <span class="badge-era">${author.eraLabel}</span>
+                <span class="badge-field">${author.field}</span>
+              </div>
+
+              <div class="author-quote-snippet">
+                "${author.quote}"
+              </div>
+            </div>
+
+            <div class="author-footer">
+              <span class="author-works-brief" title="${author.works[0]}">
+                <i class="fa-solid fa-bookmark" style="color: var(--gold-primary); margin-right: 4px;"></i>
+                ${author.works[0]}
+              </span>
+              <button class="btn btn-outline btn-learn-more" style="padding: 0.35rem 0.8rem; font-size: 0.78rem;">
+                Mëso më shumë <i class="fa-solid fa-arrow-right" style="font-size: 0.65rem;"></i>
+              </button>
+            </div>
+          `;
+
+            card
+              .querySelector(".btn-learn-more")
+              .addEventListener("click", () => openModal(author));
+            authorsGrid.appendChild(card);
+          });
+        }
+
+        renderAuthors(AUTHORS_DATABASE);
+
+        function filterAuthors() {
+          const query = authorSearchInput.value.toLowerCase().trim();
+          const activeBtn =
+            authorEraFilters.querySelector(".filter-btn.active");
+          const era = activeBtn ? activeBtn.getAttribute("data-filter") : "all";
+
+          const filtered = AUTHORS_DATABASE.filter((author) => {
+            const matchesEra = era === "all" || author.era === era;
+            const matchesQuery =
+              author.name.toLowerCase().includes(query) ||
+              author.field.toLowerCase().includes(query) ||
+              author.quote.toLowerCase().includes(query) ||
+              author.works.some((w) => w.toLowerCase().includes(query));
+            return matchesEra && matchesQuery;
+          });
+
+          renderAuthors(filtered);
+        }
+
+        authorSearchInput.addEventListener("input", filterAuthors);
+        authorEraFilters.addEventListener("click", (e) => {
+          if (!e.target.classList.contains("filter-btn")) return;
+          authorEraFilters
+            .querySelectorAll(".filter-btn")
+            .forEach((b) => b.classList.remove("active"));
+          e.target.classList.add("active");
+          filterAuthors();
+        });
+
+        /* KUIZI LOGJIKA */
+        let currentQIndex = 0;
+        const userAnswers = [];
+
+        const quizQuestionView = document.getElementById("quizQuestionView");
+        const quizResultView = document.getElementById("quizResultView");
+        const quizProgressBar = document.getElementById("quizProgressBar");
+        const quizStepLabel = document.getElementById("quizStepLabel");
+        const quizCategoryLabel = document.getElementById("quizCategoryLabel");
+        const quizQuestionText = document.getElementById("quizQuestionText");
+        const quizOptionsList = document.getElementById("quizOptionsList");
+
+        const resultCharacterName = document.getElementById(
+          "resultCharacterName",
+        );
+        const resultSourceWork = document.getElementById("resultSourceWork");
+        const resultDescription = document.getElementById("resultDescription");
+        const resultBookRecommendation = document.getElementById(
+          "resultBookRecommendation",
+        );
+        const restartQuizBtn = document.getElementById("restartQuizBtn");
+        const copyResultBtn = document.getElementById("copyResultBtn");
+
+        function loadQuiz(idx) {
+          const q = QUIZ_QUESTIONS[idx];
+          quizStepLabel.textContent = `Pyetja ${idx + 1} nga ${QUIZ_QUESTIONS.length}`;
+          quizCategoryLabel.textContent = q.category;
+          quizQuestionText.textContent = q.question;
+          quizProgressBar.style.width = `${((idx + 1) / QUIZ_QUESTIONS.length) * 100}%`;
+
+          quizOptionsList.innerHTML = "";
+          const letters = ["A", "B", "C", "D"];
+
+          q.options.forEach((opt, optIdx) => {
+            const btn = document.createElement("button");
+            btn.className = "quiz-option";
+            btn.innerHTML = `
+            <span class="quiz-option-letter">${letters[optIdx]}</span>
+            <span>${opt.text}</span>
+          `;
+            btn.addEventListener("click", () => {
+              userAnswers[idx] = opt.type;
+              if (currentQIndex < QUIZ_QUESTIONS.length - 1) {
+                currentQIndex++;
+                loadQuiz(currentQIndex);
+              } else {
+                finishQuiz();
+              }
+            });
+            quizOptionsList.appendChild(btn);
+          });
+        }
+
+        function finishQuiz() {
+          quizQuestionView.style.display = "none";
+          quizResultView.style.display = "block";
+
+          const counts = {};
+          userAnswers.forEach((t) => (counts[t] = (counts[t] || 0) + 1));
+
+          let maxT = "gjorg";
+          let maxC = -1;
+          for (const [t, c] of Object.entries(counts)) {
+            if (c > maxC) {
+              maxC = c;
+              maxT = t;
+            }
+          }
+
+          const res = QUIZ_RESULTS[maxT] || QUIZ_RESULTS["gjorg"];
+          resultCharacterName.textContent = res.name;
+          resultSourceWork.textContent = res.source;
+          resultDescription.textContent = res.desc;
+          resultBookRecommendation.textContent = res.book;
+          showToast(`Profili yt: ${res.name}!`);
+        }
+
+        restartQuizBtn.addEventListener("click", () => {
+          currentQIndex = 0;
+          userAnswers.length = 0;
+          quizResultView.style.display = "none";
+          quizQuestionView.style.display = "block";
+          loadQuiz(0);
+        });
+
+        copyResultBtn.addEventListener("click", () => {
+          const txt = `Në kuizin e Muajit të Letërsisë Shqipe, profili im doli: ${resultCharacterName.textContent} (${resultSourceWork.textContent})! Libri i rekomanduar për Tetor: ${resultBookRecommendation.textContent}.`;
+          navigator.clipboard
+            .writeText(txt)
+            .then(() => showToast("Rezultati u kopjua në kujtesë!"));
+        });
+
+        loadQuiz(0);
+
+        /* SHTEGU I CITATEVE */
+        const quoteTextDisplay = document.getElementById("quoteTextDisplay");
+        const quoteAuthorDisplay =
+          document.getElementById("quoteAuthorDisplay");
+        const quoteWorkDisplay = document.getElementById("quoteWorkDisplay");
+        const newQuoteBtn = document.getElementById("newQuoteBtn");
+        const copyQuoteBtn = document.getElementById("copyQuoteBtn");
+
+        let currentQuoteIdx = 0;
+
+        function renderQuote(idx) {
+          const q = QUOTES_DATABASE[idx];
+          quoteTextDisplay.style.opacity = "0";
+          setTimeout(() => {
+            quoteTextDisplay.textContent = `“${q.quote}”`;
+            quoteAuthorDisplay.textContent = q.author;
+            quoteWorkDisplay.textContent = q.work;
+            quoteTextDisplay.style.opacity = "1";
+          }, 180);
+        }
+
+        newQuoteBtn.addEventListener("click", () => {
+          let nextIdx;
+          do {
+            nextIdx = Math.floor(Math.random() * QUOTES_DATABASE.length);
+          } while (nextIdx === currentQuoteIdx && QUOTES_DATABASE.length > 1);
+          currentQuoteIdx = nextIdx;
+          renderQuote(currentQuoteIdx);
+        });
+
+        copyQuoteBtn.addEventListener("click", () => {
+          const fullTxt = `${quoteTextDisplay.textContent} — ${quoteAuthorDisplay.textContent}, ${quoteWorkDisplay.textContent}`;
+          navigator.clipboard
+            .writeText(fullTxt)
+            .then(() => showToast("Citati shqip u kopjua me sukses!"));
+        });
+
+        renderQuote(0);
+      });
+    </script>
+  </body>
+</html>
