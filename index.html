@@ -1878,6 +1878,10 @@
           />
         </audio>
 
+        <audio id="backgroundMusic" loop preload="none" autoplay aria-hidden="true">
+          <source src="Y2Mate.st%20-%20lost%20in%20thoughts%20for%201%20hour.mp3" type="audio/mpeg" />
+        </audio>
+
         <div class="recitations-grid">
           <!-- 1. DRITËRO AGOLLI -->
           <div class="recitation-card">
@@ -3229,15 +3233,15 @@
     "answerIndex": 2
   },
   {
-    "category": "Histori e gjuhës",
-    "question": "Çfarë alfabeti u miratua në Kongresin e Manastirit më 1908?",
+    "category": "Dramë shqipe",
+    "question": "Çfarë lloj vepre është “Besa” e Sami Frashërit?",
     "options": [
-      "Alfabeti grek",
-      "Alfabeti cirilik",
-      "Alfabeti arab",
-      "Alfabeti i bazuar në shkronjat latine"
+      "Roman",
+      "Dramë",
+      "Përmbledhje me poezi",
+      "Epos"
     ],
-    "answerIndex": 3
+    "answerIndex": 1
   }
 ];
 
@@ -3318,6 +3322,32 @@
           return `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
         }
 
+        // Muzika e sfondit vjen nga skedari lokal. Shfletuesit mund ta
+        // bllokojnë autoplay; pas klikimit të parë nis pa buton të dukshëm.
+        const backgroundMusic = document.getElementById("backgroundMusic");
+        let activeRecitationAudio = null;
+        let changingRecitation = false;
+        backgroundMusic.volume = 0.24;
+
+        function startAmbientMusic() {
+          if (!backgroundMusic || (activeRecitationAudio && !activeRecitationAudio.paused)) return;
+          if (backgroundMusic.paused) {
+            const playback = backgroundMusic.play();
+            if (playback && playback.catch) playback.catch(() => {});
+          }
+        }
+
+        function stopAmbientMusic() {
+          if (backgroundMusic && !backgroundMusic.paused) backgroundMusic.pause();
+        }
+
+        // Provohet në hapje dhe në ndërveprimin e parë që lejohet nga shfletuesi.
+        startAmbientMusic();
+        document.addEventListener("click", (event) => {
+          if (event.target.closest(".player-btn")) return;
+          startAmbientMusic();
+        });
+
         function bindRecitationPlayer(
           audioId,
           btnId,
@@ -3335,30 +3365,45 @@
           const volume = document.getElementById(audioId === "agolliAudio" ? "agolliVolume" : "kadareVolume");
           if (volume) volume.addEventListener("input", () => { audio.volume = Number(volume.value); });
 
+          audio.addEventListener("play", () => {
+            activeRecitationAudio = audio;
+            stopAmbientMusic();
+          });
+
+          audio.addEventListener("pause", () => {
+            if (changingRecitation) return;
+            if (activeRecitationAudio === audio) activeRecitationAudio = null;
+            startAmbientMusic();
+          });
+
           btn.addEventListener("click", () => {
-            // Ndalo audion tjetër nëse po luan
-            const otherAudioId =
-              audioId === "agolliAudio" ? "kadareAudio" : "agolliAudio";
+            const otherAudioId = audioId === "agolliAudio" ? "kadareAudio" : "agolliAudio";
             const otherAudio = document.getElementById(otherAudioId);
-            if (otherAudio && !otherAudio.paused) {
-              otherAudio.pause();
-            }
 
             if (audio.paused) {
-              audio
-                .play()
-                .then(() => {
-                  btn.classList.add("playing");
-                  icon.className = "fa-solid fa-pause";
-                })
-                .catch((err) => {
-                  console.warn("Audio play:", err);
-                  showToast("Skedari audio po ngarkohet nga folderi...");
-                });
+              changingRecitation = true;
+              activeRecitationAudio = audio;
+              stopAmbientMusic();
+              if (otherAudio && !otherAudio.paused) otherAudio.pause();
+              audio.play().then(() => {
+                changingRecitation = false;
+                btn.classList.add("playing");
+                icon.className = "fa-solid fa-pause";
+              }).catch((err) => {
+                changingRecitation = false;
+                if (activeRecitationAudio === audio) activeRecitationAudio = null;
+                startAmbientMusic();
+                console.warn("Audio play:", err);
+                showToast("Skedari audio po ngarkohet nga folderi...");
+              });
             } else {
+              changingRecitation = true;
               audio.pause();
+              changingRecitation = false;
+              if (activeRecitationAudio === audio) activeRecitationAudio = null;
               btn.classList.remove("playing");
               icon.className = "fa-solid fa-play";
+              startAmbientMusic();
             }
           });
 
@@ -3371,9 +3416,12 @@
           });
 
           audio.addEventListener("ended", () => {
+            if (activeRecitationAudio === audio) activeRecitationAudio = null;
+            changingRecitation = false;
             btn.classList.remove("playing");
             icon.className = "fa-solid fa-play";
             fill.style.width = "0%";
+            startAmbientMusic();
           });
 
           audio.addEventListener("loadedmetadata", () => {
